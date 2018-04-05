@@ -199,6 +199,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\basictable.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\comoLlegar.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\form.css" />
     <Content Include="css\icon-font.min.css" />
@@ -323,6 +324,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Administrador\Create.cshtml" />
+    <Content Include="Views\Home\ComoLlegar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
