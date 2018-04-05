@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\FacilidadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -197,6 +198,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css-facilidades\animate.css" />
+    <Content Include="css-facilidades\bootstrap.css" />
+    <Content Include="css-facilidades\icomoon.css" />
+    <Content Include="css-facilidades\paginacion.css" />
+    <Content Include="css-facilidades\paginación.css" />
+    <Content Include="css-facilidades\style.css" />
     <Content Include="css\basictable.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.css" />
@@ -247,6 +254,14 @@
     <Content Include="images\in9.jpg" />
     <Content Include="images\leftw.gif" />
     <Content Include="images\next.png" />
+    <Content Include="images\page_1.1.jpg" />
+    <Content Include="images\page_1.2.jpg" />
+    <Content Include="images\page_2.1.jpg" />
+    <Content Include="images\page_2.2.jpg" />
+    <Content Include="images\page_3.1.jpg" />
+    <Content Include="images\page_3.2.jpg" />
+    <Content Include="images\page_4.1.jpg" />
+    <Content Include="images\page_4.2.jpg" />
     <Content Include="images\phon.png" />
     <Content Include="images\prev.png" />
     <Content Include="images\rightw.gif" />
@@ -323,6 +338,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Administrador\Create.cshtml" />
+    <Content Include="Views\Facilidades\PaginaCuatroFacilidades.cshtml" />
+    <Content Include="Views\Facilidades\PaginaDosFacilidades.cshtml" />
+    <Content Include="Views\Facilidades\PaginaTresFacilidades.cshtml" />
+    <Content Include="Views\Facilidades\PaginaUnoFacilidades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
