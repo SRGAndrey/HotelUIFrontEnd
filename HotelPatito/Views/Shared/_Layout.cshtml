@@ -47,7 +47,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul id="menu">
                     <li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Home</span><div class="clearfix"></div></a></li>
 
-
                     <li id="menu-academico"><a href="inbox.html"><i class="fa fa-envelope nav_icon"></i><span>Sobre Nosotros</span><div class="clearfix"></div></a></li>
                     <li id="menu-academico"><a href="~/Controllers/AdministradorController.cs"><i class="fa fa-envelope nav_icon"></i><span>Create admin (prueba)</span><div class="clearfix"></div></a></li>
                     <li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>
@@ -55,15 +54,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li id="menu-academico"><a href="errorpage.html"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Tarifas</span><div class="clearfix"></div></a></li>
                     <li><a href="tabels.html"><i class="fa fa-table"></i>  <span>Reservar en linea</span><div class="clearfix"></div></a></li>
                     <li><a href="maps.html"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Como Llegar?</span><div class="clearfix"></div></a></li>
-                    <li><img style="width:150px; height:150px" src="~/images/imgpato.png"></li>                   
+                    <li><img style="width:150px; height:150px" src="~/images/imgpato.png"></li>
                 </ul>
             </div>
         </div>
         <div class="clearfix"></div>
     </div>
-   
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <!--header start here-->
+            <div class="header-main">
+                <div class="logo-w3-agile">
+                    <img style="width:150px; height:150px" src="~/images/imgpato.png">
+                </div>
+                <div class="w3layouts-left">
+
+                    <!--search-box-->
+                    <div class="w3-search-box" style="text-align:center">
+                        <h1 style="color:white">HOTEL PATITO</h1>
+                    </div><!--//end-search-box-->
+                    <div class="clearfix"> </div>
+                </div>
+
+
+
+                <div class="clearfix"> </div>
+            </div>
 
             @RenderBody()
+        </div>
+    </div>
 
     @RenderSection("scripts", required: false)
 </body>

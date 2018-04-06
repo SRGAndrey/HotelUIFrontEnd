@@ -26,5 +26,12 @@ namespace HotelPatito.Controllers
 
             return View();
         }
+
+        public ActionResult ComoLlegar()
+        {
+            ViewBag.Message = "Pagina de Como Llegar?.";
+
+            return View();
+        }
     }
 }
