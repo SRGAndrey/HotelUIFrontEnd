@@ -56,6 +56,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="maps.html"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Como Llegar?</span><div class="clearfix"></div></a></li>
                     <li><img style="width:150px; height:150px" src="~/images/imgpato.png"></li>
                 </ul>
+
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                        <div class="numbertext"></div>
+                        <img src="~/images/publi2.jpg" style="width:100%">
+                        <div class="text"></div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext"></div>
+                        <img src="~/images/publi3.jpg" style="width:100%">
+                        <div class="text"></div>
+                    </div>
+
+                </div>
+                <br>
+
+                <div style="text-align:center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <!--Script encargado del movimiento del slider-->
+                <script>
+                    var slideIndex = 0;
+                    showSlides();
+
+                    function showSlides() {
+                        var i;
+                        var slides = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("dot");
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }//1er for i
+                        slideIndex++;
+                        if (slideIndex > slides.length) {slideIndex = 1}
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }//2do for i
+                        slides[slideIndex-1].style.display = "block";
+                        dots[slideIndex-1].className += " active";
+                        setTimeout(showSlides, 2000); // Change image every 2 seconds
+                    }//end function
+                </script>
+
             </div>
         </div>
         <div class="clearfix"></div>
