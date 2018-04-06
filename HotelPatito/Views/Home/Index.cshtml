@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HotelPatito.Models.Tipadas.Hotel
+@{
     ViewBag.Title = "Home Page";
 }
 <!--/content-inner-->
@@ -21,11 +22,9 @@
                 </div>
                 <br />
                 <div class="col-md-7">
-                    <h2>Habitaciones</h2>
+                    <h2>Descripcion</h2>
                     <p>
-                        Las habitaciones del Hotel Patito se hallan en continua adecuación a las exigencias de nuestros clientes.
-
-                        Todas las habitaciones del Hotel Patito están equipadas con aire acondicionado, TV LCD, teléfono, mini-bar, caja fuerte y baño privado con secador de pelo. Cada una dispone de 2 camas dobles.
+                        @Model.descripcion_Hotel
                     </p>
                 </div>
 
