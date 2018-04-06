@@ -22,8 +22,7 @@ namespace HotelPatito.Models.Tipadas
         [StringLength(25)]
         public string nombre_Hotel { get; set; }
 
-        [Required]
-        [StringLength(350)]
+        [StringLength(600)]
         public string descripcion_Hotel { get; set; }
 
         public Guid fileIDimagen_Hotel { get; set; }
@@ -47,6 +46,9 @@ namespace HotelPatito.Models.Tipadas
         [Required]
         [StringLength(50)]
         public string email_Hotel { get; set; }
+
+        [StringLength(350)]
+        public string sobreNosotros { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Facilidad> Facilidad { get; set; }

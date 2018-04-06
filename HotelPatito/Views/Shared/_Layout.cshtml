@@ -15,8 +15,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="~/css/morris.css" type="text/css" />
     <!-- Graph CSS -->
     <link href="~/css/font-awesome.css" rel="stylesheet">
-    
-    
+
+
 
     <!-- jQuery -->
     <script src="~/js/jquery-2.1.4.min.js"></script>
@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul id="menu">
                     <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-tachometer"></i> <span>Home</span><div class="clearfix"></div></a></li>
 
-                    <li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-picture-o"></i><span>Sobre Nosotros</span><div class="clearfix"></div></a></li>
+                    <li id="menu-academico"><a href="@Url.Action("About", "Home")"><i class="fa fa-picture-o"></i><span>Sobre Nosotros</span><div class="clearfix"></div></a></li>
                     @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-envelope nav_icon"></i><span>Create admin (prueba)</span><div class="clearfix"></div></a></li>*@
                     <li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>
                     @*<li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>*@
@@ -63,13 +63,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="mySlides fade">
                         <div class="numbertext"></div>
-                        <img src="~/images/publi2.jpg" style="width:100%">
+                        <a href="https://www.google.com">
+                            <img src="~/images/publi2.jpg" style="width:100%">
+                        </a>
                         <div class="text"></div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext"></div>
-                        <img src="~/images/publi3.jpg" style="width:100%">
+                        <a href="https://www.google.com">
+                            <img src="~/images/publi3.jpg" style="width:100%">
+                        </a>
                         <div class="text"></div>
                     </div>
 
@@ -94,12 +98,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             slides[i].style.display = "none";
                         }//1er for i
                         slideIndex++;
-                        if (slideIndex > slides.length) {slideIndex = 1}
+                        if (slideIndex > slides.length) { slideIndex = 1 }
                         for (i = 0; i < dots.length; i++) {
                             dots[i].className = dots[i].className.replace(" active", "");
                         }//2do for i
-                        slides[slideIndex-1].style.display = "block";
-                        dots[slideIndex-1].className += " active";
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
                         setTimeout(showSlides, 2000); // Change image every 2 seconds
                     }//end function
                 </script>

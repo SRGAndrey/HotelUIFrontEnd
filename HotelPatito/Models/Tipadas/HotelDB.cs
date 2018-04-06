@@ -8,7 +8,7 @@ namespace HotelPatito.Models.Tipadas
     public partial class HotelDB : DbContext
     {
         public HotelDB()
-            : base("name=HotelDB1")
+            : base("name=HotelDB")
         {
         }
 
@@ -130,6 +130,10 @@ namespace HotelPatito.Models.Tipadas
 
             modelBuilder.Entity<Hotel>()
                 .Property(e => e.email_Hotel)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Hotel>()
+                .Property(e => e.sobreNosotros)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Hotel>()
