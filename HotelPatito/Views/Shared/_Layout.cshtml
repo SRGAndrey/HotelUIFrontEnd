@@ -11,6 +11,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
     <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/form-d.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="~/css/morris.css" type="text/css" />
     <!-- Graph CSS -->
     <link href="~/css/font-awesome.css" rel="stylesheet">
@@ -45,16 +46,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
             <div class="menu">
                 <ul id="menu">
-                    <li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Home</span><div class="clearfix"></div></a></li>
+                    <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-tachometer"></i> <span>Home</span><div class="clearfix"></div></a></li>
 
-                    <li id="menu-academico"><a href="inbox.html"><i class="fa fa-envelope nav_icon"></i><span>Sobre Nosotros</span><div class="clearfix"></div></a></li>
-                    <li id="menu-academico"><a href="~/Controllers/AdministradorController.cs"><i class="fa fa-envelope nav_icon"></i><span>Create admin (prueba)</span><div class="clearfix"></div></a></li>
-                    <li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>
-                    <li id="menu-academico"><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Contactenos</span><div class="clearfix"></div></a></li>
-                    <li id="menu-academico"><a href="errorpage.html"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Tarifas</span><div class="clearfix"></div></a></li>
-                    <li><a href="tabels.html"><i class="fa fa-table"></i>  <span>Reservar en linea</span><div class="clearfix"></div></a></li>
-                    <li><a href="maps.html"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Como Llegar?</span><div class="clearfix"></div></a></li>
-                    <li><img style="width:150px; height:150px" src="~/images/imgpato.png"></li>
+                    <li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-picture-o"></i><span>Sobre Nosotros</span><div class="clearfix"></div></a></li>
+                    @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-envelope nav_icon"></i><span>Create admin (prueba)</span><div class="clearfix"></div></a></li>*@
+                    <li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>
+                    @*<li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>*@
+                    <li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-envelope nav_icon"></i><span>Contactenos</span><div class="clearfix"></div></a></li>
+                    @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-bar-chart"></i><span>Contactenos</span><div class="clearfix"></div></a></li>*@
+                    <li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Tarifas</span><div class="clearfix"></div></a></li>
+                    <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-table"></i>  <span>Reservar en linea</span><div class="clearfix"></div></a></li>
+                    <li><a href="@Url.Action("ComoLlegar", "Home")"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Como Llegar?</span><div class="clearfix"></div></a></li>
                 </ul>
 
                 <div class="slideshow-container">
@@ -111,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--header start here-->
             <div class="header-main">
                 <div class="logo-w3-agile">
-                    <img style="width:150px; height:150px" src="~/images/imgpato.png">
+                    <img style="width:150px; height:150px" src="~/images/Logo 2.PNG">
                 </div>
                 <div class="w3layouts-left">
 
@@ -128,6 +130,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
 
             @RenderBody()
+        </div>
+        <!--//w3-agileits-pane-->
+        <!--inner block start here-->
+        <div class="inner-block">
+
+        </div>
+        <!--inner block end here-->
+        <div class="copyrights">
+            <h4 style="color:white">Copyright©Hotel Patito 2018</h4>
         </div>
     </div>
 

@@ -33,3 +33,9 @@
 	width: 100%;
 	min-height: 450px;
 }
+
+.copyrights {
+    background-color: #08088A;
+    display: flex;
+    justify-content: flex-end;
+}
