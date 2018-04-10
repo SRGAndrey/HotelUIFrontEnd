@@ -23,6 +23,7 @@ namespace HotelPatito.Models.Tipadas
         public virtual DbSet<HotelPublicidad> HotelPublicidad { get; set; }
         public virtual DbSet<Publicidad> Publicidad { get; set; }
         public virtual DbSet<Reservacion> Reservacion { get; set; }
+        public virtual DbSet<Imagen> Imagen { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -121,6 +122,18 @@ namespace HotelPatito.Models.Tipadas
                 .IsUnicode(false);
 
             modelBuilder.Entity<Hotel>()
+                .Property(e => e.sobreNosotros_Hotel)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Hotel>()
+                .Property(e => e.latitud_Hotel)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Hotel>()
+                .Property(e => e.longitud_Hotel)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Hotel>()
                 .Property(e => e.comoLlegar_Hotel)
                 .IsUnicode(false);
 
@@ -130,10 +143,6 @@ namespace HotelPatito.Models.Tipadas
 
             modelBuilder.Entity<Hotel>()
                 .Property(e => e.email_Hotel)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Hotel>()
-                .Property(e => e.sobreNosotros)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Hotel>()
@@ -178,6 +187,10 @@ namespace HotelPatito.Models.Tipadas
 
             modelBuilder.Entity<Reservacion>()
                 .Property(e => e.idCliente_Reservacion)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Imagen>()
+                .Property(e => e.descripcion_Imagen)
                 .IsUnicode(false);
         }
     }

@@ -22,19 +22,24 @@ namespace HotelPatito.Models.Tipadas
         [StringLength(25)]
         public string nombre_Hotel { get; set; }
 
-        [StringLength(600)]
+        [Required]
+        [StringLength(500)]
         public string descripcion_Hotel { get; set; }
 
-        public Guid fileIDimagen_Hotel { get; set; }
-
-        public byte[] imagen_Hotel { get; set; }
-
-        public double latitud_Hotel { get; set; }
-
-        public double longitud_Hotel { get; set; }
+        [Required]
+        [StringLength(500)]
+        public string sobreNosotros_Hotel { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(50)]
+        public string latitud_Hotel { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string longitud_Hotel { get; set; }
+
+        [Required]
+        [StringLength(350)]
         public string comoLlegar_Hotel { get; set; }
 
         [Required]
@@ -46,9 +51,6 @@ namespace HotelPatito.Models.Tipadas
         [Required]
         [StringLength(50)]
         public string email_Hotel { get; set; }
-
-        [StringLength(350)]
-        public string sobreNosotros { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Facilidad> Facilidad { get; set; }

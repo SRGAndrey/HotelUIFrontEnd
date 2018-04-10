@@ -189,7 +189,9 @@
     <Compile Include="Models\Tipadas\Hotel.cs" />
     <Compile Include="Models\Tipadas\HotelAdministrador.cs" />
     <Compile Include="Models\Tipadas\HotelDB.cs" />
+    <Compile Include="Models\Tipadas\HotelConImagenes.cs" />
     <Compile Include="Models\Tipadas\HotelPublicidad.cs" />
+    <Compile Include="Models\Tipadas\Imagen.cs" />
     <Compile Include="Models\Tipadas\Publicidad.cs" />
     <Compile Include="Models\Tipadas\Reservacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,8 +208,8 @@
     <Content Include="css-facilidades\style.css" />
     <Content Include="css\basictable.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\comoLlegar.css" />
     <Content Include="css\font-awesome.css" />
-    <Content Include="css\form-d.css" />
     <Content Include="css\form.css" />
     <Content Include="css\icon-font.min.css" />
     <Content Include="css\jqcandlestick.css" />

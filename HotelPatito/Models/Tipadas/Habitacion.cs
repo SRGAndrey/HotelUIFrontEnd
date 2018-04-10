@@ -34,10 +34,6 @@ namespace HotelPatito.Models.Tipadas
 
         public double tarifa { get; set; }
 
-        public Guid fileIDimagen_Habitacion { get; set; }
-
-        public byte[] imagen_Habitacion { get; set; }
-
         [StringLength(25)]
         public string hotel_Habitacion { get; set; }
 

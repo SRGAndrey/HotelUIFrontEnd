@@ -21,39 +21,28 @@ namespace HotelPatito.Controllers
             cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var respuesta = await cliente.GetStringAsync("Hotel/obtenerHotel?id=" + nombreHotel);
-            var hotel = JsonConvert.DeserializeObject<Hotel>(respuesta);
+            var hotel = JsonConvert.DeserializeObject<HotelConImagenes>(respuesta);
 
-            if (respuesta.Length == 0 || respuesta == null)
+            if (hotel == null )
             {
                 String mensaje = "Error al leer informacion";
                 return View(mensaje);
             }
             else
             {
+                //HotelConImagenes hotelIndex = new HotelConImagenes();
+                //hotelIndex.nombre_Hotel = hotel.nombre_Hotel;
+                //hotelIndex.descripcion_Hotel = hotel.descripcion_Hotel;
+                //hotelIndex.imagenes = imagenes;
                 return View(hotel);
             }
         }
 
-        public async Task<ActionResult> About()
+        public ActionResult About()
         {
-            String nombreHotel = "Patito";
-            HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri("http://localhost:58406/");
-            cliente.DefaultRequestHeaders.Accept.Clear();
-            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            ViewBag.Message = "Your application description page.";
 
-            var respuesta = await cliente.GetStringAsync("Hotel/obtenerHotel?id=" + nombreHotel);
-            var hotel = JsonConvert.DeserializeObject<Hotel>(respuesta);
-
-            if (respuesta.Length == 0 || respuesta == null)
-            {
-                String mensaje = "Error al leer informacion";
-                return View(mensaje);
-            }
-            else
-            {
-                return View(hotel);
-            }
+            return View();
         }
 
         public ActionResult Contact()
@@ -63,26 +52,11 @@ namespace HotelPatito.Controllers
             return View();
         }
 
-        public async Task<ActionResult> ComoLlegar()
+        public ActionResult ComoLlegar()
         {
-            String nombreHotel = "Patito";
-            HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri("http://localhost:58406/");
-            cliente.DefaultRequestHeaders.Accept.Clear();
-            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            ViewBag.Message = "Pagina de Como Llegar?.";
 
-            var respuesta = await cliente.GetStringAsync("Hotel/obtenerHotel?id=" + nombreHotel);
-            var hotel = JsonConvert.DeserializeObject<Hotel>(respuesta);
-
-            if (respuesta.Length == 0 || respuesta == null)
-            {
-                String mensaje = "Error al leer informacion";
-                return View(mensaje);
-            }
-            else
-            {
-                return View(hotel);
-            }
+            return View();
         }
     }
 }

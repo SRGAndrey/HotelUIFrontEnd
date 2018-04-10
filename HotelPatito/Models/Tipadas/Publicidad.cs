@@ -22,10 +22,6 @@ namespace HotelPatito.Models.Tipadas
         [StringLength(25)]
         public string link_Publicidad { get; set; }
 
-        public Guid fileIDimagen_Publicidad { get; set; }
-
-        public byte[] imagen_Publicidad { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelPublicidad> HotelPublicidad { get; set; }
     }

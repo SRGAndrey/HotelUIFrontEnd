@@ -14,12 +14,8 @@ namespace HotelPatito.Models.Tipadas
         public string id_Facilidad { get; set; }
 
         [Required]
-        [StringLength(350)]
+        [StringLength(500)]
         public string descripcion_Facilidad { get; set; }
-
-        public Guid fileIDimagen_Facilidad { get; set; }
-
-        public byte[] imagen_Facilidad { get; set; }
 
         [StringLength(25)]
         public string hotel_Facilidad { get; set; }

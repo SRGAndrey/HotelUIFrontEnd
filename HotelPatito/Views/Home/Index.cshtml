@@ -1,4 +1,4 @@
-﻿@model HotelPatito.Models.Tipadas.Hotel
+﻿@model HotelPatito.Models.Tipadas.HotelConImagenes
 @{
     ViewBag.Title = "Home Page";
 }
@@ -18,13 +18,24 @@
         <div class="agileits-box">
             <div class="row">
                 <div class="col-md-5">
-                    <img src="~/images/page_1.1.jpg" width="400" height="400" class="img-responsive">
+                    
+                    @foreach (var item in Model.imagenes)
+                    {
+                        if (item.descripcion_Imagen == "Index")
+                        {
+                            var base64ImagenHotel = Convert.ToBase64String(item.imagen_Imagen);
+                            var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                            <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+                        }
+
+                    }
+                    
                 </div>
                 <br />
                 <div class="col-md-7">
                     <h2>Descripcion</h2>
                     <p>
-                        @Model.descripcion_Hotel
+                       @Model.descripcion_Hotel
                     </p>
                 </div>
 
