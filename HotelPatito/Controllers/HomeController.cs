@@ -38,11 +38,30 @@ namespace HotelPatito.Controllers
             }
         }
 
-        public ActionResult About()
+        public async Task<ActionResult> About()
         {
-            ViewBag.Message = "Your application description page.";
+            String nombreHotel = "Patito";
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri("http://localhost:58406/");
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            return View();
+            var respuesta = await cliente.GetStringAsync("Hotel/obtenerHotel?id=" + nombreHotel);
+            var hotel = JsonConvert.DeserializeObject<HotelConImagenes>(respuesta);
+
+            if (hotel == null)
+            {
+                String mensaje = "Error al leer informacion";
+                return View(mensaje);
+            }
+            else
+            {
+                //HotelConImagenes hotelIndex = new HotelConImagenes();
+                //hotelIndex.nombre_Hotel = hotel.nombre_Hotel;
+                //hotelIndex.descripcion_Hotel = hotel.descripcion_Hotel;
+                //hotelIndex.imagenes = imagenes;
+                return View(hotel);
+            }
         }
 
         public ActionResult Contact()
@@ -52,11 +71,30 @@ namespace HotelPatito.Controllers
             return View();
         }
 
-        public ActionResult ComoLlegar()
+        public async Task<ActionResult> ComoLlegar()
         {
-            ViewBag.Message = "Pagina de Como Llegar?.";
+            String nombreHotel = "Patito";
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri("http://localhost:58406/");
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            return View();
+            var respuesta = await cliente.GetStringAsync("Hotel/obtenerHotel?id=" + nombreHotel);
+            var hotel = JsonConvert.DeserializeObject<HotelConImagenes>(respuesta);
+
+            if (hotel == null)
+            {
+                String mensaje = "Error al leer informacion";
+                return View(mensaje);
+            }
+            else
+            {
+                //HotelConImagenes hotelIndex = new HotelConImagenes();
+                //hotelIndex.nombre_Hotel = hotel.nombre_Hotel;
+                //hotelIndex.descripcion_Hotel = hotel.descripcion_Hotel;
+                //hotelIndex.imagenes = imagenes;
+                return View(hotel);
+            }
         }
     }
 }
