@@ -184,16 +184,33 @@
     <Compile Include="Models\Tipadas\Caracteristica.cs" />
     <Compile Include="Models\Tipadas\Caracteristica_Habitacion.cs" />
     <Compile Include="Models\Tipadas\Cliente.cs" />
+    <Compile Include="Models\Tipadas\Entidad.cs" />
+    <Compile Include="Models\Tipadas\Entidad_SubEntidad_Imagen.cs" />
     <Compile Include="Models\Tipadas\Facilidad.cs" />
+    <Compile Include="Models\Tipadas\FacilidadesConImagenes.cs" />
     <Compile Include="Models\Tipadas\Habitacion.cs" />
     <Compile Include="Models\Tipadas\Hotel.cs" />
     <Compile Include="Models\Tipadas\HotelAdministrador.cs" />
-    <Compile Include="Models\Tipadas\HotelDB.cs" />
     <Compile Include="Models\Tipadas\HotelConImagenes.cs" />
+    <Compile Include="Models\Tipadas\HotelDB.cs" />
     <Compile Include="Models\Tipadas\HotelPublicidad.cs" />
     <Compile Include="Models\Tipadas\Imagen.cs" />
+    <Compile Include="Models\Tipadas\ImagenesBar.cs" />
+    <Compile Include="Models\Tipadas\ImagenesCafeteria.cs" />
+    <Compile Include="Models\Tipadas\ImagenesDescripcion.cs" />
+    <Compile Include="Models\Tipadas\ImagenesFacilidades.cs" />
+    <Compile Include="Models\Tipadas\ImagenesHotel.cs" />
+    <Compile Include="Models\Tipadas\ImagenesInfantiles.cs" />
+    <Compile Include="Models\Tipadas\ImagenesJacuzzi.cs" />
+    <Compile Include="Models\Tipadas\ImagenesPiscina.cs" />
+    <Compile Include="Models\Tipadas\ImagenesRestaurante.cs" />
+    <Compile Include="Models\Tipadas\ImagenesSobreNosotros.cs" />
+    <Compile Include="Models\Tipadas\ImagenesTenis.cs" />
     <Compile Include="Models\Tipadas\Publicidad.cs" />
     <Compile Include="Models\Tipadas\Reservacion.cs" />
+    <Compile Include="Models\Tipadas\Rol.cs" />
+    <Compile Include="Models\Tipadas\SubEntidad.cs" />
+    <Compile Include="Models\Tipadas\Tipo_Habitacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -306,13 +323,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -346,6 +356,13 @@
     <Content Include="Views\Facilidades\PaginaTresFacilidades.cshtml" />
     <Content Include="Views\Facilidades\PaginaUnoFacilidades.cshtml" />
     <Content Include="Views\Home\ComoLlegar.cshtml" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

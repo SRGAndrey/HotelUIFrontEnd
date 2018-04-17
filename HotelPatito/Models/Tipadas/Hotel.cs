@@ -13,9 +13,9 @@ namespace HotelPatito.Models.Tipadas
         public Hotel()
         {
             Facilidad = new HashSet<Facilidad>();
-            Habitacion = new HashSet<Habitacion>();
             HotelAdministrador = new HashSet<HotelAdministrador>();
             HotelPublicidad = new HashSet<HotelPublicidad>();
+            Tipo_Habitacion = new HashSet<Tipo_Habitacion>();
         }
 
         [Key]
@@ -56,12 +56,12 @@ namespace HotelPatito.Models.Tipadas
         public virtual ICollection<Facilidad> Facilidad { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Habitacion> Habitacion { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelAdministrador> HotelAdministrador { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelPublicidad> HotelPublicidad { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tipo_Habitacion> Tipo_Habitacion { get; set; }
     }
 }

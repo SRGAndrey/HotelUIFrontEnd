@@ -26,7 +26,11 @@ namespace HotelPatito.Models.Tipadas
         [StringLength(25)]
         public string contrasenna_Administrador { get; set; }
 
+        public int rol_Administrador { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelAdministrador> HotelAdministrador { get; set; }
+
+        public virtual Rol Rol { get; set; }
     }
 }

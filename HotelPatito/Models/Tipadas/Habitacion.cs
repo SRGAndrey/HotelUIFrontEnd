@@ -12,7 +12,6 @@ namespace HotelPatito.Models.Tipadas
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Habitacion()
         {
-            Caracteristica_Habitacion = new HashSet<Caracteristica_Habitacion>();
             Reservacion = new HashSet<Reservacion>();
         }
 
@@ -21,28 +20,16 @@ namespace HotelPatito.Models.Tipadas
         public int numero_Habitacion { get; set; }
 
         [Required]
-        [StringLength(9)]
-        public string tipo_Habitacion { get; set; }
-
-        [Required]
-        [StringLength(350)]
-        public string descripcion_Habitacion { get; set; }
-
-        [Required]
         [StringLength(10)]
         public string estado_Habitacion { get; set; }
 
-        public double tarifa { get; set; }
-
-        [StringLength(25)]
-        public string hotel_Habitacion { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Caracteristica_Habitacion> Caracteristica_Habitacion { get; set; }
+        [Required]
+        [StringLength(15)]
+        public string tipo_Habitacion_Habitacion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservacion> Reservacion { get; set; }
 
-        public virtual Hotel Hotel { get; set; }
+        public virtual Tipo_Habitacion Tipo_Habitacion { get; set; }
     }
 }

@@ -6,23 +6,23 @@ namespace HotelPatito.Models.Tipadas
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Caracteristica")]
-    public partial class Caracteristica
+    [Table("SubEntidad")]
+    public partial class SubEntidad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Caracteristica()
+        public SubEntidad()
         {
-            Caracteristica_Habitacion = new HashSet<Caracteristica_Habitacion>();
+            Entidad_SubEntidad_Imagen = new HashSet<Entidad_SubEntidad_Imagen>();
         }
 
         [Key]
-        public int id_Caracteristica { get; set; }
+        public int id_SubEntidad { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string descripcion_Caracteristica { get; set; }
+        [StringLength(50)]
+        public string descripcion_SubEntidad { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Caracteristica_Habitacion> Caracteristica_Habitacion { get; set; }
+        public virtual ICollection<Entidad_SubEntidad_Imagen> Entidad_SubEntidad_Imagen { get; set; }
     }
 }

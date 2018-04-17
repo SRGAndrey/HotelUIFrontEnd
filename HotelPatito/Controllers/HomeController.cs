@@ -12,37 +12,12 @@ namespace HotelPatito.Controllers
 {
     public class HomeController : Controller
     {
+        private string Base_URL = "http://localhost:58406/";
         public async Task<ActionResult> Index()
         {
             String nombreHotel = "Patito";
             HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri("http://localhost:58406/");
-            cliente.DefaultRequestHeaders.Accept.Clear();
-            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-            var respuesta = await cliente.GetStringAsync("Hotel/obtenerHotel?id=" + nombreHotel);
-            var hotel = JsonConvert.DeserializeObject<HotelConImagenes>(respuesta);
-
-            if (hotel == null )
-            {
-                String mensaje = "Error al leer informacion";
-                return View(mensaje);
-            }
-            else
-            {
-                //HotelConImagenes hotelIndex = new HotelConImagenes();
-                //hotelIndex.nombre_Hotel = hotel.nombre_Hotel;
-                //hotelIndex.descripcion_Hotel = hotel.descripcion_Hotel;
-                //hotelIndex.imagenes = imagenes;
-                return View(hotel);
-            }
-        }
-
-        public async Task<ActionResult> About()
-        {
-            String nombreHotel = "Patito";
-            HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri("http://localhost:58406/");
+            cliente.BaseAddress = new Uri(Base_URL);
             cliente.DefaultRequestHeaders.Accept.Clear();
             cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -51,15 +26,33 @@ namespace HotelPatito.Controllers
 
             if (hotel == null)
             {
-                String mensaje = "Error al leer informacion";
+                String mensaje = "Error al buscar el hotel";
                 return View(mensaje);
             }
             else
             {
-                //HotelConImagenes hotelIndex = new HotelConImagenes();
-                //hotelIndex.nombre_Hotel = hotel.nombre_Hotel;
-                //hotelIndex.descripcion_Hotel = hotel.descripcion_Hotel;
-                //hotelIndex.imagenes = imagenes;
+                return View(hotel);
+            }
+        }
+
+        public async Task<ActionResult> About()
+        {
+            String nombreHotel = "Patito";
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var respuesta = await cliente.GetStringAsync("Hotel/obtenerHotel?id=" + nombreHotel);
+            var hotel = JsonConvert.DeserializeObject<HotelConImagenes>(respuesta);
+
+            if (hotel == null)
+            {
+                String mensaje = "Error al buscar el hotel";
+                return View(mensaje);
+            }
+            else
+            {
                 return View(hotel);
             }
         }
@@ -75,7 +68,7 @@ namespace HotelPatito.Controllers
         {
             String nombreHotel = "Patito";
             HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri("http://localhost:58406/");
+            cliente.BaseAddress = new Uri(Base_URL);
             cliente.DefaultRequestHeaders.Accept.Clear();
             cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -84,15 +77,11 @@ namespace HotelPatito.Controllers
 
             if (hotel == null)
             {
-                String mensaje = "Error al leer informacion";
+                String mensaje = "Error al buscar el hotel";
                 return View(mensaje);
             }
             else
             {
-                //HotelConImagenes hotelIndex = new HotelConImagenes();
-                //hotelIndex.nombre_Hotel = hotel.nombre_Hotel;
-                //hotelIndex.descripcion_Hotel = hotel.descripcion_Hotel;
-                //hotelIndex.imagenes = imagenes;
                 return View(hotel);
             }
         }
