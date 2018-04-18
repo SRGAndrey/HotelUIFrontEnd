@@ -26,7 +26,7 @@ namespace HotelPatito.Controllers
 
             if (hotel == null)
             {
-                String mensaje = "Error";
+                String mensaje = "Error al buscar el hotel";
                 return View(mensaje);
             }
             else
