@@ -174,6 +174,7 @@
     <Compile Include="Controllers\FacilidadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +224,7 @@
     <Content Include="css-facilidades\paginacion.css" />
     <Content Include="css-facilidades\paginación.css" />
     <Content Include="css-facilidades\style.css" />
+    <Content Include="css-form\style.css" />
     <Content Include="css\basictable.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\comoLlegar.css" />
@@ -357,6 +359,8 @@
     <Content Include="Views\Facilidades\PaginaUnoFacilidades.cshtml" />
     <Content Include="Views\Home\ComoLlegar.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Reservar\index.cshtml" />
+    <Content Include="Views\Reservar\Sin_Resultado.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

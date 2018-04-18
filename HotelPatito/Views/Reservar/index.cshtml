@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "PaginaUnoFacilidades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .button {
+        background-color: #0738f7;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    $('#target').hide(0);
+    $('.target').hide("fast");
+</script>
+
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3 style="color:darksalmon; text-align:center;">Reservar en Línea</h3>
+        </header>
+        <div class="agileits-box-body clearfix">
+            <p style="font-style:italic"><b></b></p>
+        </div>
+    </div>
+</div>
+<div id="fh5co-wrap">
+    <div class="fh5co-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5" style="left:300px;">
+                    <label for="fecha_llegada" class="col-sm-5 control-label" style="width:200px">Fecha de Llegada:</label>
+                    <br />
+                    <input type="date" class="form-control col-sm-5" style="width:200px" id="casa_Comercial" name="casa_Comercial" placeholder="Casa comercial" required>
+                </div>
+                <div class="col-md-7" style="left:100px;">
+                    <label for="fecha_salida" class="col-sm-5 control-label" style="width:200px">Fecha de Salida:</label>
+                    <br />
+                    <input type="date" class="form-control col-sm-5" style="width:200px" id="casa_Comercial" name="casa_Comercial" placeholder="Casa comercial" required>
+                </div>
+
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-5" style="left:300px;">
+                    <label for="tipo_habitacion" class="col-sm-5 control-label" style="width:200px">Tipo de habitación </label>
+                    <br />
+                    <select class="form-control" id="presentacion" style="width:200px" name="presentacion" required>
+                        <option value="">-- Selecciona estado --</option>
+                        <option value="Saco" selected>Estandar</option>
+                        <option value="Litro">Normal</option>
+                    </select>
+                </div>
+                <div class="col-md-7" style="left:100px;">
+                    <label for="cantidad_persona" class="col-sm-5 control-label" style="width:200px">Cantidad de personas</label>
+                    <br />
+                    <select class="form-control" id="presentacion" style="width:200px" name="presentacion" required>
+                        <option value="">-- Selecciona estado --</option>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+            </div>
+            <div style="text-align:center">
+                <br />
+                <input type="button" class="button" id="mostrar" name="mostrar" value="Reservar">
+            </div>
+            <br />
+            <br />
+            <div id="target" style="display:none;">
+                <h2>Habitación disponible</h2>
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <img src="~/images/page_1.1.jpg" width="400" height="400" class="img-responsive">
+                            </div>
+                            <div class="col-md-7">
+                                <h2>Habitaciones</h2>
+                                <p>
+                                    Las habitaciones del Hotel Patito se hallan en continua adecuación a las exigencias de nuestros clientes.
+
+                                    Todas las habitaciones del Hotel Patito están equipadas con aire acondicionado, TV LCD, teléfono, mini-bar, caja fuerte y baño privado con secador de pelo. Cada una dispone de 2 camas dobles.
+                                </p>
+                            </div>
+
+                        </div>
+                        <br><br>
+                        <div class="row" style="left:300px;top:15px">
+                            <label for="cedula" class="col-sm-5 control-label" style="width:100px">Cédula:</label>
+                            <input type="text" class="form-control col-sm-5" style="width:400px" id="cedula" name="cedula" placeholder="Cédula" required>
+                        </div>
+                        <br />
+                        <div class="row" style="left:300px;top:15px">
+                            <label for="nombre" class="col-sm-5 control-label" style="width:100px">Nombre:</label>
+                            <input type="text" class="form-control col-sm-5" style="width:400px" id="nombre" name="nombre" placeholder="Nombre" required>
+                        </div>
+                        <br />
+                        <div class="row" style="left:300px;top:15px">
+                            <label for="apellido" class="col-sm-5 control-label" style="width:100px">Apellido:</label>
+                            <input type="text" class="form-control col-sm-5" style="width:400px" id="apellido" name="apellido" placeholder="Apellido" required>
+                        </div>
+                        <br />
+                        <div class="row" style="left:300px;top:15px">
+                            <label for="email" class="col-sm-5 control-label" style="width:100px">Correo:</label>
+                            <input type="email" class="form-control col-sm-5" style="width:400px" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <br />
+                        <div class="row" style="left:300px;top:15px">
+                            <label for="tarjeta" class="col-sm-5 control-label" style="width:170px">Numero de tarjeta:</label>
+                            <input type="text" class="form-control col-sm-5" style="width:330px" id="tarjeta" name="tarjeta" placeholder="Numero de Tarjeta" required>
+                        </div>
+                        <br />
+                        <div style="text-align:center">
+                            <br />
+                            <input type="button" class="button" value="Reservar">
+                            <input type="button" class="button" id="ocultar" name="ocultar" value="Cancelar">
+
+                        </div>
+                    </div>
+
+                </div>
+                <br /><br />
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#mostrar").click(function () {
+                $('#target').show(3000);
+                $('.target').show("slow");
+            });
+            $("#ocultar").click(function () {
+                $('#target').hide(3000);
+                $('.target').hide("fast");
+            });
+        });
+    </script>
+    
