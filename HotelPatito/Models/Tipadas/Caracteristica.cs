@@ -12,7 +12,7 @@ namespace HotelPatito.Models.Tipadas
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Caracteristica()
         {
-            Caracteristica_Habitacion = new HashSet<Caracteristica_Habitacion>();
+            Caracteristica_Tipo_Habitacion = new HashSet<Caracteristica_Tipo_Habitacion>();
         }
 
         [Key]
@@ -23,6 +23,6 @@ namespace HotelPatito.Models.Tipadas
         public string descripcion_Caracteristica { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Caracteristica_Habitacion> Caracteristica_Habitacion { get; set; }
+        public virtual ICollection<Caracteristica_Tipo_Habitacion> Caracteristica_Tipo_Habitacion { get; set; }
     }
 }
