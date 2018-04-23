@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -54,8 +55,46 @@ namespace HotelPatito.Controllers
                 + "&tarjeta=" + tarjeta + "&email=" + email);
 
             var Reservacion = JsonConvert.DeserializeObject<Reservacion>(respuesta);
+
+            try
+            {
+
+                MailMessage correo = new MailMessage();
+                correo.From = new MailAddress("sergdios09@gmail.com");
+                correo.To.Add(email);
+                correo.Subject = "Reservacion en Hotel Patito";
+                correo.Body = "El siguiente correo es para verificar que el cliente: "+nombre+" "+ apellidos+ 
+                    " realizó una reservacion para la habitación número: "+ habitacion+" para la fecha"+fechaLlegada+
+                    " hasta la fecha "+ fechaSalida +". Gracias por preferirnos ";
+                correo.IsBodyHtml = true;
+                correo.Priority = MailPriority.Normal;
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 25;
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = true;
+                string sCuentaCorreo = "hotelpatito2018@gmail.com";
+                string sPasswordCorreo = "segama701";
+                smtp.Credentials = new System.Net.NetworkCredential(sCuentaCorreo, sPasswordCorreo);
+                smtp.Send(correo);
+
+                ViewBag.Message = "Se envio correctamente";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+            }
+
+
+            //ACA va la cara de tipadas
+
+            ClienteReserva clienteReserva = new ClienteReserva();
+            clienteReserva.nombre_cliente = nombre;
+            clienteReserva.numero_habitacion = habitacion;
+            clienteReserva.mail = email;
             
-            return RedirectToAction("BuscaHabitacion");
+            return RedirectToAction("Result",clienteReserva);
         }
         // GET: Reservar
         public ActionResult Index()
@@ -69,6 +108,11 @@ namespace HotelPatito.Controllers
             return View();
         }
 
+        // GET: Reservar/Details/5
+        public ActionResult Result(ClienteReserva cliente)
+        {
+            return View(cliente);
+        }
         // GET: Reservar/Create
         public ActionResult Create()
         {

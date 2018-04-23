@@ -198,6 +198,7 @@
     <Compile Include="Models\Tipadas\Caracteristica.cs" />
     <Compile Include="Models\Tipadas\Caracteristica_Tipo_Habitacion.cs" />
     <Compile Include="Models\Tipadas\Cliente.cs" />
+    <Compile Include="Models\Tipadas\ClienteReserva.cs" />
     <Compile Include="Models\Tipadas\Entidad.cs" />
     <Compile Include="Models\Tipadas\Entidad_SubEntidad_Imagen.cs" />
     <Compile Include="Models\Tipadas\Facilidad.cs" />
@@ -380,6 +381,7 @@
     <Content Include="Web.config" />
     <Content Include="Views\Reservar\BuscaHabitacion.cshtml" />
     <Content Include="Views\Reservar\ReservarHabitacion.cshtml" />
+    <Content Include="Views\Reservar\Result.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
