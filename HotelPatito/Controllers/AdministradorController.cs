@@ -15,7 +15,7 @@ namespace HotelPatito.Controllers
     public class AdministradorController : Controller
     {
 
-        private string Base_URL = "http://localhost:58406/api/";
+        private string Base_URL = "http://localhost:58406/";
         // GET: Administrador
         public ActionResult Index()
         {
@@ -36,42 +36,24 @@ namespace HotelPatito.Controllers
 
         // POST: Administrador/Create
         [HttpPost]
-        public async Task<ActionResult> Create(String usuario, String contra)
+        public async Task<ActionResult> Create(string usuario, string contra)
         {
-            //            Administrador admin = new Administrador();
-            //            admin.contrasenna_Administrador = contra;
-            //            admin.id_Administrador = 0;
-            //            admin.usuario_Administrador = usuario;
+            
+                HttpClient cliente = new HttpClient();
+                cliente.BaseAddress = new Uri(Base_URL);
+                cliente.DefaultRequestHeaders.Accept.Clear();
+                cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            //            try
-            //            {
-            //                HttpClient client = new HttpClient();
-            //                client.BaseAddress = new Uri(Base_URL);
-            //                client.DefaultRequestHeaders.Accept.Clear();
-            //                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //                String jsonAtribute = JsonConvert.SerializeObject(admin);
-            //                var buffer = Encoding.UTF8.GetBytes(jsonAtribute);
-            //                var byteContent = new ByteArrayContent(buffer);
+                var respuesta = await cliente.GetStringAsync("Admin/obtenerAdmin?usuario=" + usuario + "&contra=" + contra);
+                var administrador = JsonConvert.DeserializeObject<Administrador>(respuesta);
 
-            //;                HttpResponseMessage response = await client.PostAsync("Administrador/insertarAdministrador", byteContent);
-            //                //return response.IsSuccessStatusCode;
+                if (administrador != null)
+                {
+                    Session["UserName"] = administrador.usuario_Administrador;
+                    Session["Contrasena"] = administrador.contrasenna_Administrador;
+                    return RedirectToAction("Index","Home");
+                }
 
-            //                if (response.IsSuccessStatusCode) {
-            //                    return RedirectToAction("Index"); // hay que enviar alguna variable para mostrar un mensaje de que se guard'o correctamente
-            //                                                      // esa variable en la vista se va encontrar en @model y se recorrería con RAZOR
-            //                                                      // ver este video https://www.youtube.com/watch?v=Z08vmuSh03g a partir del min 10:40
-            //                }
-            //                else
-            //                {
-            //                    String mensaje = "Respuesta de api sin exito";
-            //                    return View(mensaje);
-            //                }
-
-            //            }
-            //            catch
-            //            {
-            //                return View();
-            //            }
             return View();
         }
 
