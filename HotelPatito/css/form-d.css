@@ -1,0 +1,41 @@
+﻿/************************************************CSS para Como Llegar?**************************************************************************/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.map {
+    padding: 1em;
+    border: 1px solid #e7ebee;
+    margin-bottom: 2em;
+    background: #fff;
+	 box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -o-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+    background-color: green;
+	/*display: flex;
+    justify-content: center;*/
+}
+
+.w3ls_map iframe {
+	width: 100%;
+	min-height: 450px;
+}
+
+.copyrights {
+    background-color: #08088A;
+    display: flex;
+    justify-content: flex-end;
+}
