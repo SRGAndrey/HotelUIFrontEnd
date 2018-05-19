@@ -49,6 +49,20 @@
                         <br />
                         <input type="date" class="form-control col-sm-5" style="width:200px" id="fechaSalida" name="fechaSalida" placeholder="Casa comercial" required>
                     </div>
+                    <script>
+                            var f = new Date();
+                            if ((f.getMonth() + 1) < 10 && f.getDate() < 10)
+                                var fa = f.getFullYear() + "-0" + (f.getMonth() + 1) + "-0" + f.getDate();
+                            else if ((f.getMonth() + 1) < 10)
+                                var fa = f.getFullYear() + "-0" + (f.getMonth() + 1) + "-" + f.getDate();
+                            else if (f.getDate() < 10)
+                                var fa = f.getFullYear() + "-" + (f.getMonth() + 1) + "-0" + f.getDate();
+                            else
+                                var fa = f.getFullYear() + "-" + (f.getMonth() + 1) + "-" + f.getDate();
+                            document.formulario.fechaLlegada.min = fa;
+
+                            //document.formulario.fechaLlegada.value = "2018-01-20";
+                    </script>
 
                 </div>
                 <br><br>
@@ -84,3 +98,16 @@
 <br />
 <br />
 <br />
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input[id=fechaLlegada]").click(function () {
+                document.formulario.fechaSalida.value = "";
+            });
+            $("input[id=fechaSalida]").click(function () {
+                document.formulario.fechaSalida.min = document.formulario.fechaLlegada.value;
+            });
+        });
+    </script>
+}

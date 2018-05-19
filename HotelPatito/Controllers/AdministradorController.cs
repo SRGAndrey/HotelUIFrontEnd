@@ -17,9 +17,16 @@ namespace HotelPatito.Controllers
 
         private string Base_URL = "http://localhost:58406/";
         // GET: Administrador
-        public ActionResult Index()
+        public ActionResult Home()
         {
-            return View();
+            if (Session["UserName"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Create", "Administrador", new { login = true });
+            }
         }
 
         // GET: Administrador/Details/5
@@ -29,32 +36,37 @@ namespace HotelPatito.Controllers
         }
 
         // GET: Administrador/Create
-        public ActionResult Create()
+        public ActionResult Create(bool login)
         {
+            if (login)
+            {
+                return View();
+            }
+            ViewBag.ErrorMessage = "Usuario o contraseña incorrecta!!!" + "\n" + "Intentalo de nuevo";
             return View();
+
         }
 
         // POST: Administrador/Create
         [HttpPost]
         public async Task<ActionResult> Create(string usuario, string contra)
         {
-            
-                HttpClient cliente = new HttpClient();
-                cliente.BaseAddress = new Uri(Base_URL);
-                cliente.DefaultRequestHeaders.Accept.Clear();
-                cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-                var respuesta = await cliente.GetStringAsync("Admin/obtenerAdmin?usuario=" + usuario + "&contra=" + contra);
-                var administrador = JsonConvert.DeserializeObject<Administrador>(respuesta);
+            var respuesta = await cliente.GetStringAsync("Admin/obtenerAdmin?usuario=" + usuario + "&contra=" + contra);
+            var administrador = JsonConvert.DeserializeObject<Administrador>(respuesta);
 
-                if (administrador != null)
-                {
-                    Session["UserName"] = administrador.usuario_Administrador;
-                    Session["Contrasena"] = administrador.contrasenna_Administrador;
-                    return RedirectToAction("Index","Home");
-                }
+            if (administrador != null)
+            {
+                Session["UserName"] = administrador.usuario_Administrador;
+                Session["Contrasena"] = administrador.contrasenna_Administrador;
+                return RedirectToAction("Home", "Administrador");
+            }
 
-            return View();
+            return RedirectToAction("Create", "Administrador", new { login = false });
         }
 
         // GET: Administrador/Edit/5
@@ -83,6 +95,17 @@ namespace HotelPatito.Controllers
         public ActionResult Delete(int id)
         {
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            //Session.Abandon();
+            Session.Remove("UserName");
+            Session.Clear();
+            Session.Abandon();
+            Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+            var abc = Session["UserName"];
+            return RedirectToAction("Create", "Administrador", new { login = true });
         }
 
         // POST: Administrador/Delete/5

@@ -18,10 +18,60 @@
     }
 </style>
 
+<style>
+    /*Estilo para los modals de notificaciones*/
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+
+
 <script>
     $('#target').hide(0);
     $('.target').hide("fast");
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    
 
 <div class="agileinfo-grap">
     <div class="agileits-box">
@@ -133,6 +183,9 @@
                                 <div class="row" style="left:300px;top:15px">
                                     <label for="cedula" class="col-sm-5 control-label" style="width:100px">Cédula:</label>
                                     <input type="text" class="form-control col-sm-5" style="width:400px" id="cedula" name="cedula" placeholder="Cédula" required>
+                                    <script type="text/javascript">
+                                        $("#cedula").mask("9-9999-9999");
+                                    </script>
                                 </div>
                                 <br />
                                 <div class="row" style="left:300px;top:15px">
@@ -166,10 +219,55 @@
                                 <br />
                                 <div style="text-align:center">
                                     <br />
-                                    <input type="submit" class="button" value="Reservar">
+                                    <input type="submit" class="button" value="Reservar" onclick="pagar();">
                                     <input type="button" class="button" id="ocultar" name="mostrar" value="Cancelar">
                                 </div>
                             </div>
+
+                            @* Modal *@
+
+                            <div id="myModal" class="modal">
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <p>Procesando Transacción....</p>
+                                    <img src="../images/espera.png">
+                                </div>
+                            </div>
+
+                            <div id="myModal2" class="modal">
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <p>El pago ha sido realizado con éxito!!!... Redireccionando...</p>
+                                    <img src="../images/listo.png">
+                                </div>
+                            </div>
+                            <script>
+                                var modal = document.getElementById('myModal');
+                                var modal2 = document.getElementById('myModal2');
+                                var btn = document.getElementById("myBtn");
+                                var span = document.getElementsByClassName("close")[0];
+                                var btn2 = document.getElementById("btn2");
+
+                				function pagar() {
+
+                                    if (document.getElementById('tarjeta').value != "") {
+                                        modal.style.display = "block";
+                                        setTimeout(myFunction2, 1500);
+                                    }
+                                }//pagar
+                                btn2.onclick = function() {
+                                    modal2.style.display = "none";
+                                }//btn2 on click
+
+                                function myFunction2() {
+                                    modal.style.display = "none";
+                                    modal2.style.display = "block";
+                                }//myFunction2
+</script>
+
+                            @* Fin modal *@
+
+
 
                         </div>
                         <br /><br />
@@ -192,6 +290,31 @@
             $('#target').hide(3000);
             $('.target').hide("fast");
         });
+        $("#cedula").on("input", function () {
+            //alert("Change to " + this.value);
+            var cedulaCliente = this.value;
+            if (this.value.length == 11) {
+                //alert("Cedula envío: "+cedula);
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:53128/Reservar/CargarDatosCliente",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify({ cedula: cedulaCliente }),
+                    success: function (data) { //recibe los datos que vienen dentro de la consulta
+                        if (data != null) {
+                            var datos = data.split("/");
+                            document.getElementById('nombre').value = datos[0];
+                            document.getElementById('apellidos').value = datos[1];
+                            document.getElementById('email').value = datos[2];
+                        }
+                    },//success
+                    error: function (data) {
+                        alert("ERR: ");
+                    },//error
+                });//ajax
+            }//if (this.value.length == 11)
+        });//cedula.on
     });
 </script>
 

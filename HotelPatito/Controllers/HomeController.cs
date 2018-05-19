@@ -85,5 +85,26 @@ namespace HotelPatito.Controllers
                 return View(hotel);
             }
         }
+        public async Task<ActionResult> Tarifas()
+        {
+            String nombreHotel = "Patito";
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var respuesta = await cliente.GetStringAsync("Hotel/obtenerHabitacion");
+            var hotel = JsonConvert.DeserializeObject<TipoHabitacionConImagenes>(respuesta);
+
+            if (hotel == null)
+            {
+                String mensaje = "Error al buscar el hotel";
+                return View(mensaje);
+            }
+            else
+            {
+                return View(hotel);
+            }
+        }
     }
 }

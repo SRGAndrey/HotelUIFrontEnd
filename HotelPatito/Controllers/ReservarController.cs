@@ -39,6 +39,39 @@ namespace HotelPatito.Controllers
         }
 
         [HttpPost]
+        public async Task<ActionResult> CargarDatosCliente(string cedula)
+        {
+
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var respuesta = await cliente.GetStringAsync("Reservacion/CargarDatosCliente?cedula=" + cedula);
+
+            //La variable Cliente debe estar en Tipadas
+            var clienteResultante = JsonConvert.DeserializeObject<Cliente>(respuesta);
+
+            string resultado = clienteResultante.nombre_Cliente + "/" +
+                               clienteResultante.apellidos_Cliente + "/" +
+                               clienteResultante.email_Cliente + "/" +
+                               clienteResultante.tarjeta_Cliente;
+
+            if (clienteResultante != null)
+            {
+                return Json(resultado);
+            }
+            else
+            {
+                return Json(null);
+
+            }
+
+            //return Json(clienteResultante);
+
+        }//CargarDatosCliente
+
+        [HttpPost]
         public async Task<ActionResult> HacerReservacion(string fechaLlegada, string fechaSalida, int habitacion, string cedula,
             string nombre, string apellidos, int tarjeta, string email)
         {

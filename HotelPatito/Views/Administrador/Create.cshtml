@@ -17,6 +17,13 @@
         <fieldset>
             <button name="submit" type="submit" id="submit" data-submit="...Sending">Ingresar</button>
         </fieldset>
+        @if (@ViewBag.ErrorMessage != null)
+        {
+            <div style="border: 5px solid red">
+                <p style="font-family:Arial; font-size:medium">@ViewBag.ErrorMessage</p>
+            </div>
+        }
+        <br />
         <p class="copyright">Hotel Patito <!--<a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a>--></p>
     </form>
 </div>
