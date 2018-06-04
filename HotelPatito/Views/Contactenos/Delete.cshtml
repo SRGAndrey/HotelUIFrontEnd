@@ -1,0 +1,89 @@
+﻿@model HotelPatito.Models.Tipadas.Hotel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Hotel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion_Hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion_Hotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sobreNosotros_Hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sobreNosotros_Hotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.latitud_Hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitud_Hotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitud_Hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitud_Hotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comoLlegar_Hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comoLlegar_Hotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_Hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_Hotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aptoPostal_Hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aptoPostal_Hotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_Hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_Hotel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
