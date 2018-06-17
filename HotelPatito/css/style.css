@@ -1,4 +1,4 @@
-/*
+x/*
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -9,6 +9,10 @@ html, body{
     font-size: 100%;
   	overflow-x: hidden;
 	background-color: #edecec;
+}
+body p#mensaje{
+  font-family: 'Roboto', sans-serif;
+  color:greenyellow;
 }
 body a{
 	transition:0.5s all;

@@ -2,10 +2,17 @@
 @{
     ViewBag.Title = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
+
+<style>
+    .p#mensaje{
+        color:red;
+        background-color:aqua;
+    }
+</style>
 <!-- For-Gallery -->
 <link href="~/css/lsb.css" rel="stylesheet" type="text/css" media="all">
-
 
     <div class="agileinfo-grap">
         <div class="agileits-box">
@@ -13,6 +20,7 @@
                 <h3 style="color:darksalmon">BIENVENIDOS AL HOTEL PATITO</h3>
             </header>
             <div class="agileits-box-body clearfix">
+                <p id="mensaje" name="mensaje"><b>@Session["actualizado"]</b></p>
                 <p style="font-style:italic"><b>@Model.hotel.sobreNosotros_Hotel</b></p>
             </div>
         </div>

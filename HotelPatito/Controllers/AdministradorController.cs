@@ -63,10 +63,31 @@ namespace HotelPatito.Controllers
             {
                 Session["UserName"] = administrador.usuario_Administrador;
                 Session["Contrasena"] = administrador.contrasenna_Administrador;
+
+                switch (administrador.rol_Administrador)
+                {
+                    case 1:
+                        Session["Rol"] = "super";
+                        break;
+                    case 2:
+                        Session["Rol"] = "administrador";
+                        break;
+                    case 3:
+                        Session["Rol"] = "basico";
+                        break;
+                }
+
+                
                 return RedirectToAction("Home", "Administrador");
             }
 
             return RedirectToAction("Create", "Administrador", new { login = false });
+        }
+        public ActionResult BuscarHabitacion()
+        {
+
+            return View();
+
         }
 
         // GET: Administrador/Edit/5

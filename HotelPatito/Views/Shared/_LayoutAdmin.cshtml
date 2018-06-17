@@ -61,7 +61,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
     <div class="page-container.sidebar-collapsed-back">
-        <!--/sidebar-menu-->
         <div class="sidebar-menu">
             <header class="logo1">
                 <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
@@ -69,35 +68,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
             <div class="menu">
                 <ul id="menu">
-                    <li><a href="@Url.Action("Home", "Administrador")"><i class="fa fa-tachometer"></i> <span>Home</span><div class="clearfix"></div></a></li>
-                    <li id="menu-academico"><a href="@Url.Action("About", "Home")"><i class="fa fa-picture-o"></i><span>Modificar páginas</span><div class="clearfix"></div></a></li>
-                    @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-envelope nav_icon"></i><span>Create admin (prueba)</span><div class="clearfix"></div></a></li>*@
-                    <li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Listado de reservaciones</span><div class="clearfix"></div></a></li>
-                    @*<li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>*@
-                    <li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-envelope nav_icon"></i><span>Administrar habitaciones</span><div class="clearfix"></div></a></li>
-                    @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-bar-chart"></i><span>Contactenos</span><div class="clearfix"></div></a></li>*@
-                    <li id="menu-academico"><a href="@Url.Action("Index", "Habitacion")"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Ver estado del hotel hoy</span><div class="clearfix"></div></a></li>
-                    <li><a href="@Url.Action("BuscaHabitacion", "Reservar")"><i class="fa fa-table"></i>  <span>Disponibilidad  de habitación</span><div class="clearfix"></div></a></li>
-                    <li><a href="@Url.Action("ComoLlegar", "Home")"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Publicidad</span><div class="clearfix"></div></a></li>
+
+                    @if (Session["Rol"] != null)
+                    {
+                        if (Session["Rol"] == "super")
+                        {
+                            <li><a href="@Url.Action("Home", "Administrador")"><i class="fa fa-tachometer"></i> <span>Home</span><div class="clearfix"></div></a></li>
+                            <li id="menu-academico"><a href="@Url.Action("Index", "EditarPaginas")"><i class="fa fa-picture-o"></i><span>Modificar páginas</span><div class="clearfix"></div></a></li>
+                            @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-envelope nav_icon"></i><span>Create admin (prueba)</span><div class="clearfix"></div></a></li>*@
+                            <li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Listado de reservaciones</span><div class="clearfix"></div></a></li>
+                            @*<li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>*@
+                            <li id="menu-academico"><a href="@Url.Action("AdministrarHabitaciones", "Habitacion")"><i class="fa fa-envelope nav_icon"></i><span>Administrar habitaciones</span><div class="clearfix"></div></a></li>
+                            @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-bar-chart"></i><span>Contactenos</span><div class="clearfix"></div></a></li>*@
+                            <li id="menu-academico"><a href="@Url.Action("Index", "Habitacion")"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Ver estado del hotel hoy</span><div class="clearfix"></div></a></li>
+                            <li><a href="@Url.Action("BuscarHabitacion", "Administrador")"><i class="fa fa-table"></i>  <span>Disponibilidad  de habitación</span><div class="clearfix"></div></a></li>
+                            <li><a href="@Url.Action("ComoLlegar", "Home")"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Publicidad</span><div class="clearfix"></div></a></li>
+                            <li><a href="@Url.Action("ComoLlegar", "Home")"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Ingresar administradores</span><div class="clearfix"></div></a></li>
+                        }
+                        else if (Session["Rol"] == "administrador")
+                        {
+                            <li><a href="@Url.Action("Home", "Administrador")"><i class="fa fa-tachometer"></i> <span>Home</span><div class="clearfix"></div></a></li>
+                            <li id="menu-academico"><a href="@Url.Action("Index", "EditarPaginas")"><i class="fa fa-picture-o"></i><span>Modificar páginas</span><div class="clearfix"></div></a></li>
+                            @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-envelope nav_icon"></i><span>Create admin (prueba)</span><div class="clearfix"></div></a></li>*@
+                            <li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Listado de reservaciones</span><div class="clearfix"></div></a></li>
+                            @*<li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Facilidades</span><div class="clearfix"></div></a></li>*@
+                            <li id="menu-academico"><a href="@Url.Action("AdministrarHabitaciones", "Habitacion")"><i class="fa fa-envelope nav_icon"></i><span>Administrar habitaciones</span><div class="clearfix"></div></a></li>
+                            @*<li id="menu-academico"><a href="@Url.Action("Index", "Home")"><i class="fa fa-bar-chart"></i><span>Contactenos</span><div class="clearfix"></div></a></li>*@
+                            <li id="menu-academico"><a href="@Url.Action("Index", "Habitacion")"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Ver estado del hotel hoy</span><div class="clearfix"></div></a></li>
+                            <li><a href="@Url.Action("BuscarHabitacion", "Administrador")"><i class="fa fa-table"></i>  <span>Disponibilidad  de habitación</span><div class="clearfix"></div></a></li>
+                            <li><a href="@Url.Action("ComoLlegar", "Home")"><i class="fa fa-map-marker" aria-hidden="true"></i>  <span>Publicidad</span><div class="clearfix"></div></a></li>
+                        }
+                        else if (Session["Rol"] == "basico")
+                        {
+                            <li><a href="@Url.Action("Home", "Administrador")"><i class="fa fa-tachometer"></i> <span>Home</span><div class="clearfix"></div></a></li>
+                            <li><a href="@Url.Action("PaginaUnoFacilidades", "Facilidades")"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Listado de reservaciones</span><div class="clearfix"></div></a></li>
+                            <li id="menu-academico"><a href="@Url.Action("Index", "Habitacion")"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Ver estado del hotel hoy</span><div class="clearfix"></div></a></li>
+                            <li><a href="@Url.Action("BuscarHabitacion", "Administrador")"><i class="fa fa-table"></i>  <span>Disponibilidad  de habitación</span><div class="clearfix"></div></a></li>
+                        }
+                    }
+                    @* si session está seteada *@
                 </ul>
 
                 <div class="slideshow-container">
                     <div class="mySlides fade">
                         <div class="numbertext"></div>
                         <a href="https://www.google.com">
-                            <img src="~/images/publi2.jpg" style="width:100%">
+                            <img src="~/images/publi2.jpg" style="width:100%;height:330px;">
                         </a>
                         <div class="text"></div>
                     </div>
                     <div class="mySlides fade">
                         <div class="numbertext"></div>
                         <a href="https://www.google.com">
-                            <img src="~/images/publi3.jpg" style="width:100%">
+                            <img src="~/images/publi3.jpg" style="width:100%;height:330px;">
                         </a>
                         <div class="text"></div>
                     </div>
                 </div>
-                <br>
                 <div style="text-align:center">
                     <span class="dot"></span>
                     <span class="dot"></span>
