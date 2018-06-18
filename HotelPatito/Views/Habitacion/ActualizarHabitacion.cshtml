@@ -1,0 +1,102 @@
+﻿@model HotelPatito.Models.Tipadas.Tipo_Habitacion
+@{
+    ViewBag.Title = "ActualizarHabitacion";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="~/css-facilidades/animate.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/css-facilidades/bootstrap.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="~/css-facilidades/icomoon.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="~/css-facilidades/paginacion.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css-facilidades/magnific-popup.css">
+    <div class="agileinfo-grap">
+        <div class="agileits-box">
+            <header class="agileits-box-header clearfix">
+                <h3 style="color:darksalmon">Modificar Habitación</h3>
+            </header>
+            <div class="agileits-box-body clearfix">
+                <p style="font-style:italic"><b></b></p>
+            </div>
+        </div>
+    </div>
+    <div id="fh5co-wrap">
+        <div class="fh5co-section">
+            <div class="container">
+                <div class="row">
+                   
+                    <div class="container border border-success" >
+                        <form class="form-horizontal" action="../Habitacion/ActualizarHabitaciones" method="post">
+                            <div class="form-group ">
+                                <h1 style="text-align: center;" class="text-success">Modificar Habitación</h1>
+                                <br>
+                                <label for="Nombre" class="control-label col-md-2 col-md-offset-2">Nombre</label>
+                                <div class="col-md-2">
+                                    <input class="form-control" type="text" placeholder="tarifa" value="@Model.nombre_Tipo_Habitacion" id="tipo" name="tipo">
+                                </div>
+
+                                <label for="Nombre" class="control-label col-md-2">Tarifa Diaria:</label>
+                                <div class="col-md-2">
+                                    <input class="form-control" type="text" placeholder="tarifa" value="@Model.tarifa_Tipo_Habitacion" id="tarifa" name="tarifa">
+                                </div>
+                            </div>
+                            <br /><br />
+
+                            <div class="form-group">
+                                <label for="descripcion" class="control-label col-md-2 ">Descripción: </label>
+                                <div class="col-md-6">
+                                    <textarea class="form-control col-md-12" rows="5" name="descripcion" id="descripcion">@Model.descripcion_Tipo_Habitacion</textarea>
+                                </div>
+                            </div>
+                            <br /><br />
+
+
+
+                            <div class="form-group">
+                                <img src="~/images/page_1.1.jpg" width="200" height="200" class="img-responsive control-label col-md-2 col-md-offset-2">
+                                <label for="file" class="control-label col-md-2 ">Seleccione una imagen</label>
+                                <div class="col-md-2">
+                                    <input type="file" class="form-control-file btn btn-secundary dropdown-toggle col-md-12" id="File">
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group ">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <input type="submit" class="btn btn-success col-md-4" value="Guardar" id="BtnGuardar">
+
+
+                                </div>
+                            </div>
+
+                        </form>
+                        <form action="../Habitacion/AdministrarHabitaciones" method="post">
+                            <div class="form-group ">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <input type="submit" class="btn btn-danger col-md-4" value="Cancelar" id="BtnCancel">
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <br><br>
+                
+            </div>
+        </div>
+       
+    </div>

@@ -1,0 +1,42 @@
+﻿@model HotelPatito.Models.Tipadas.HotelConImagenes
+@{
+    ViewBag.Title = "Home Page";
+}
+<!--/content-inner-->
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3 style="color:darksalmon">Inicio</h3>
+        </header>
+        <div class="agileits-box-body clearfix">
+            <p style="font-style:italic"><b></b></p>
+        </div>
+    </div>
+</div>
+<div id="fh5co-wrap">
+    <div class="agileinfo-grap">
+        <div class="agileits-box">
+            <div class="row">
+                <div class="col-md-5">
+                    
+                    @foreach (var item in Model.imagenesDescripcion)
+                    {
+                        var base64ImagenHotel = Convert.ToBase64String(item.imagen_Imagen);
+                        var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                        <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+
+                    }
+                    
+                </div>
+                <br />
+                <div class="col-md-7">
+                    <h2>Descripcion</h2>
+                    <p>
+                       @Model.hotel.descripcion_Hotel
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

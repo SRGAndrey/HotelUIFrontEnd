@@ -1,0 +1,28 @@
+﻿@model HotelPatito.Models.Tipadas.HotelConImagenes
+@{
+    ViewBag.Title = "ComoLlegar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/comoLlegar.css" rel='stylesheet' type='text/css' />
+
+<!--agileinfo-grap-->
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3 style="color:darksalmon">COMO LLEGAR?</h3>
+        </header>
+        <div class="agileits-box-body clearfix">
+            <p style="font-style:italic"><b>@Model.hotel.comoLlegar_Hotel</b></p>
+        </div>
+    </div>
+</div>
+
+<div class="map">
+    <div>
+        <div class="w3ls_map">
+            <iframe src="https://maps.google.com/maps?q=9.611411,-84.627426&hl=es;z=14&amp;output=embed"
+                    style="border:0"></iframe>
+        </div>
+    </div>
+</div>
