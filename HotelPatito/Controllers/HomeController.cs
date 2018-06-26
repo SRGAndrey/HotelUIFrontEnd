@@ -107,4 +107,67 @@ namespace HotelPatito.Controllers
             }
         }
     }
+
+    public async Task<ActionResult> ActualizarHome(HttpPostedFileBase file, string imagenActual, string descripcionImagenActual, string hotel, string textoDescripcion)
+    {
+
+        HttpClient cliente = new HttpClient();
+        cliente.BaseAddress = new Uri(Base_URL);
+        cliente.DefaultRequestHeaders.Accept.Clear();
+        cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+        HttpResponseMessage respuestaImagen = new HttpResponseMessage();
+        HttpResponseMessage respuestaDatos = new HttpResponseMessage();
+
+        /* Serializar String */
+        //string descripcionYid = hotel + "," + descripcionImagenActual;
+        Hotel miHotel = new Hotel();
+        miHotel.nombre_Hotel = hotel;
+        miHotel.descripcion_Hotel = textoDescripcion;
+        var dato = JsonConvert.SerializeObject(miHotel);
+        var bufferDatos = Encoding.UTF8.GetBytes(dato);
+        var datosContent = new ByteArrayContent(bufferDatos);
+        datosContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json");
+        /* ************* */
+
+        if (file != null)
+        {
+            var datosImagen = new MemoryStream();
+
+            file.InputStream.CopyTo(datosImagen);
+
+            byte[] nuevaImagen = datosImagen.ToArray();
+
+            int imagenCambiar = Int32.Parse(imagenActual);
+
+            Imagen miImagen = new Imagen();
+            miImagen.descripcion_Imagen = descripcionImagenActual;
+            miImagen.imagen_Imagen = nuevaImagen;
+            miImagen.id_Imagen = imagenCambiar;
+            miImagen.fileID_Imagen = new Guid();
+            /*Serializar Imagen */
+            var imagen = JsonConvert.SerializeObject(miImagen);
+            var buffer = Encoding.UTF8.GetBytes(imagen);
+
+            var imagenContent = new ByteArrayContent(buffer);
+            imagenContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json");
+
+            /* ************* */
+
+            respuestaImagen = await cliente.PostAsync("Hotel/actualizarImagenHome", imagenContent);
+
+        }
+
+        respuestaDatos = await cliente.PostAsync("Hotel/actualizarDescripcionHome", datosContent);
+
+
+        if (respuestaDatos.IsSuccessStatusCode)
+        {
+            //var hotel = JsonConvert.DeserializeObject<HotelConImagenes>(respuesta.Content.ReadAsStringAsync().Result);
+
+            return RedirectToAction("AdministrarHome", "Home");
+        }
+        return RedirectToAction("AdministrarHome", "Home");
+
+    }
 }
