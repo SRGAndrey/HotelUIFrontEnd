@@ -31,10 +31,5 @@ namespace HotelPatito.Models.Tipadas
         public virtual ICollection<Reservacion> Reservacion { get; set; }
 
         public virtual Tipo_Habitacion Tipo_Habitacion { get; set; }
-
-        public static implicit operator List<object>(Habitacion v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

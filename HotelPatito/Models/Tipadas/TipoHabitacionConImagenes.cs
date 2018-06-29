@@ -12,5 +12,10 @@
         public ImagenesJunior imagenJunior { get; set; }
         public ImagenesStandard imagenStandard { get; set; }
         public ImagenesSuite imagenSuite { get; set; }
+
+        public Tipo_Habitacion tipoHabitacionX { get; set; }
+        public byte[] imagenX { get; set; }
+        public int idImagen { get; set; }
+        public string descripcionImagen { get; set; }
     }
 }

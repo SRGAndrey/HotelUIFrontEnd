@@ -23,6 +23,7 @@ namespace HotelPatito.Models.Tipadas
         [StringLength(100)]
         public string descripcion_Imagen { get; set; }
 
+        [Column(TypeName = "image")]
         public byte[] imagen_Imagen { get; set; }
     }
 }
