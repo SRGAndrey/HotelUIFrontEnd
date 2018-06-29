@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -72,7 +73,7 @@ namespace HotelPatito.Controllers
             cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var respuesta = await cliente.GetStringAsync("Habitacion/obtenerTipoHabitacion?tipo=" + nombreTipoHabitacion);
-            var hotel = JsonConvert.DeserializeObject<Tipo_Habitacion>(respuesta);
+            var hotel = JsonConvert.DeserializeObject<TipoHabitacionConImagenes>(respuesta);
 
             if (hotel == null)
             {
@@ -81,12 +82,30 @@ namespace HotelPatito.Controllers
             }
             else
             {
+                if (nombreTipoHabitacion == "Junior")
+                {
+                    hotel.imagenX = hotel.imagenJunior.imagen_Imagen;
+                    hotel.idImagen = hotel.imagenJunior.id_Imagen;
+                    hotel.descripcionImagen = hotel.imagenJunior.descripcion_Imagen;
+                }
+                else if (nombreTipoHabitacion == "Standard")
+                {
+                    hotel.imagenX = hotel.imagenStandard.imagen_Imagen;
+                    hotel.idImagen = hotel.imagenStandard.id_Imagen;
+                    hotel.descripcionImagen = hotel.imagenStandard.descripcion_Imagen;
+                }
+                else if (nombreTipoHabitacion == "Suite")
+                {
+                    hotel.imagenX = hotel.imagenSuite.imagen_Imagen;
+                    hotel.idImagen = hotel.imagenSuite.id_Imagen;
+                    hotel.descripcionImagen = hotel.imagenSuite.descripcion_Imagen;
+                }
                 return View(hotel);
             }
         }
 
         [HttpPost]
-        public async Task<ActionResult> ActualizarHabitaciones(string tipo, string descripcion, double tarifa)
+        public async Task<ActionResult> ActualizarHabitaciones(HttpPostedFileBase file, string imagenActual, string descripcionImagenActual, string tipo, string descripcion, double tarifa)
         {
             String nombreHotel = "Patito";
             HttpClient cliente = new HttpClient();
@@ -95,6 +114,34 @@ namespace HotelPatito.Controllers
             cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var respuesta = await cliente.GetStringAsync("Habitacion/actualizarTipo?tipo=" + tipo + "&descripcion=" + descripcion + "&tarifa=" + tarifa);
+
+            if (file != null)
+            {
+                var datosImagen = new MemoryStream();
+
+                file.InputStream.CopyTo(datosImagen);
+
+                byte[] nuevaImagen = datosImagen.ToArray();
+
+                int imagenCambiar = Int32.Parse(imagenActual);
+
+                Imagen miImagen = new Imagen();
+                miImagen.descripcion_Imagen = descripcionImagenActual;
+                miImagen.imagen_Imagen = nuevaImagen;
+                miImagen.id_Imagen = imagenCambiar;
+                //miImagen.fileID_Imagen = new Guid();
+                /*Serializar Imagen */
+                var imagen = JsonConvert.SerializeObject(miImagen);
+                var buffer = Encoding.UTF8.GetBytes(imagen);
+
+                var imagenContent = new ByteArrayContent(buffer);
+                imagenContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json");
+
+                /* ************* */
+                HttpResponseMessage respuestaImagen = new HttpResponseMessage();
+                respuestaImagen = await cliente.PostAsync("Habitacion/actualizarImagenTH", imagenContent);
+
+            }
 
             return RedirectToAction("AdministrarHabitaciones", "Habitacion");
 

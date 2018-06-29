@@ -18,8 +18,7 @@ namespace HotelPatito.Models.Tipadas
         [Key]
         public int id_Imagen { get; set; }
 
-        public Guid fileID_Imagen { get; set; }
-
+        [Column(TypeName = "image")]
         public byte[] imagen_Imagen { get; set; }
 
         [Required]
