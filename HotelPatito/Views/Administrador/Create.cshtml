@@ -1,0 +1,32 @@
+﻿@model HotelPatito.Models.Tipadas.Administrador
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css-login/styles.css" rel='stylesheet' type='text/css' />
+
+<div class="container">
+    <form id="contact" action="../Administrador/Create" method="post">
+        <h3 style="text-align:center;">Login</h3>
+        <div class="imgcontainer">
+            <img src="~/images/img_avatar2.png" style="width:200px;height:200px;" alt="Avatar" class="avatar">
+        </div>
+        <fieldset style="text-align:center;">
+            <input style="text-align:center;" placeholder="Usuario" id="usuario" name="usuario" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset style="text-align:center;">
+            <input style="text-align:center;" placeholder="Contraseña" id="contra" name="contra" type="password" tabindex="2" required>
+        </fieldset>
+        <fieldset style="text-align:center;">
+            <button name="submit" style="background-color:blue" type="submit" id="submit" data-submit="...Sending">Ingresar</button>
+        </fieldset>
+        @if (@ViewBag.ErrorMessage != null)
+        {
+            <div style="border: 5px solid red; text-align:center;">
+                <p style="font-family:Arial; font-size:medium; text-align:center;">@ViewBag.ErrorMessage</p>
+            </div>
+        }
+        <br />
+    </form>
+
+</div>

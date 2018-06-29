@@ -1,0 +1,63 @@
+﻿@model HotelPatito.Models.Tipadas.TipoHabitacionConImagenes
+
+@{
+    ViewBag.Title = "Tarifas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3 style="color:darksalmon">Tarifas</h3>
+        </header>
+        <div class="agileits-box-body clearfix">
+            <p style="font-style:italic"><b></b></p>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+@foreach (var tipoHabitacion in Model.tipoHabitacion)
+            {
+    <div class="agileinfo-grap">
+        <div class="agileits-box">
+            <header class="agileits-box-header clearfix">
+                <br><br>
+                <div class="row">
+                    <div class="col-md-5">
+                        @if (tipoHabitacion.nombre_Tipo_Habitacion == "Suite")
+                        {
+                            var base64ImagenHabitacion = Convert.ToBase64String(Model.imagenSuite.imagen_Imagen);
+                            var imgSrcImagenHabitacion = String.Format("data:image/gif;base64,{0}", base64ImagenHabitacion);
+                            <img src="@imgSrcImagenHabitacion" width="300" height="300">
+                        }
+                        else if (tipoHabitacion.nombre_Tipo_Habitacion == "Standard")
+                        {
+                            var base64ImagenHabitacion = Convert.ToBase64String(Model.imagenStandard.imagen_Imagen);
+                            var imgSrcImagenHabitacion = String.Format("data:image/gif;base64,{0}", base64ImagenHabitacion);
+                            <img src="@imgSrcImagenHabitacion" width="300" height="300">
+
+                        }
+                        else
+                        {
+                            var base64ImagenHabitacion = Convert.ToBase64String(Model.imagenJunior.imagen_Imagen);
+                            var imgSrcImagenHabitacion = String.Format("data:image/gif;base64,{0}", base64ImagenHabitacion);
+                            <img src="@imgSrcImagenHabitacion" width="300" height="300">
+                        }
+
+                    </div>
+
+                    <br /><br />
+                    <div class="col-md-7">
+                        <h2> @tipoHabitacion.nombre_Tipo_Habitacion </h2>
+                        <p>Descripción: @tipoHabitacion.descripcion_Tipo_Habitacion</p>
+                        <h3>Precio: @tipoHabitacion.tarifa_Tipo_Habitacion</h3>
+                    </div>
+                </div>
+
+            </header>
+        </div>
+    </div>
+}
+<br><br>
+
