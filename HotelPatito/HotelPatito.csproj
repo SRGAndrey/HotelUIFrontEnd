@@ -524,6 +524,7 @@
     <Content Include="Views\EditarPaginas\Index.cshtml" />
     <Content Include="Views\EditarPaginas\Tarifas.cshtml" />
     <Content Include="Views\Facilidades\Index.cshtml" />
+    <Content Include="Views\Home\AdministrarHome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

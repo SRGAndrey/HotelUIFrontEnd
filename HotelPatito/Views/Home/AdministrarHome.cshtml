@@ -1,0 +1,100 @@
+﻿@model HotelPatito.Models.Tipadas.HotelConImagenes
+@{
+    ViewBag.Title = "AdministrarHome";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+
+<link rel="stylesheet" href="~/css/style.css">
+<link rel="stylesheet" href="~/css-facilidades/magnific-popup.css">
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3 style="color:darksalmon">Modificar Informacion de home</h3>
+        </header>
+        <div class="agileits-box-body clearfix">
+            <p style="font-style:italic"><b></b></p>
+        </div>
+    </div>
+</div>
+<div id="fh5co-wrap">
+    <div class="fh5co-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="container border border-success">
+                    <form class="form-horizontal" action="../Home/ActualizarHome" method="post" enctype="multipart/form-data">
+                        
+                        <br /><br />
+
+                        <div class="form-group">
+                            <label for="descripcion" class="control-label col-md-2 ">Descripción: </label>
+                            <div class="col-md-6">
+                                <textarea class="form-control col-md-12" rows="5" name="textoDescripcion" id="textoDescripcion"> @Model.hotel.descripcion_Hotel</textarea>
+                                <input style="visibility:hidden" type="text" id="hotel" name="hotel" value="@Model.hotel.nombre_Hotel">
+
+                            </div>
+                        </div>
+                        <br /><br />
+
+
+
+                        <div class="form-group">
+                            @foreach (var item in Model.imagenesDescripcion)
+                            {
+                               
+                                var base64ImagenHotel = Convert.ToBase64String(item.imagen_Imagen);
+                                var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                                <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+
+                            
+                            <label for="file" class="control-label col-md-2 ">Seleccione una imagen</label>
+                            <div class="col-md-2">
+                                <input type="file" id="file" name="file">
+                            </div>
+
+                            <div style="visibility:hidden" class="col-md-2">
+                                <input style="visibility:hidden" type="text" id="imagenActual" name="imagenActual" value="@item.id_Imagen">
+                            </div>
+
+                            <div style="visibility:hidden" class="col-md-2">
+                                <input style="visibility:hidden" type="text" id="descripcionActual" name="descripcionActual" value="@item.descripcion_Imagen">
+                            </div>
+
+
+                                break;
+                            }
+                        </div>
+
+
+
+                        <div class="form-group ">
+                            <div class="col-md-6 col-md-offset-4">
+                                <input type="submit" class="btn btn-success col-md-4" value="Guardar" id="BtnGuardar">
+
+
+                            </div>
+                        </div>
+
+                    </form>
+                    <form action="../Habitacion/AdministrarHabitaciones" method="post">
+                        <div class="form-group ">
+                            <div class="col-md-6 col-md-offset-4">
+                                <input type="submit" class="btn btn-danger col-md-4" value="Cancelar" id="BtnCancel">
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+
+</div>
+
