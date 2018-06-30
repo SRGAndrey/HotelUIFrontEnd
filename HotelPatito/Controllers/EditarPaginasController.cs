@@ -128,7 +128,8 @@ namespace HotelPatito.Controllers
             {
                 return View(hotel);
             }
-        }
+        }//editarFacilidad
+
         public async Task<ActionResult> ComoLlegar()
         {
             String nombreHotel = "Patito";
@@ -150,6 +151,47 @@ namespace HotelPatito.Controllers
                 return View(hotel);
             }
         }
+
+        public async Task<ActionResult> AdministrarComoLlegar()
+        {
+            String nombreHotel = "Patito";
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var respuesta = await cliente.GetStringAsync("Hotel/obtenerHotel?id=" + nombreHotel);
+            var hotel = JsonConvert.DeserializeObject<HotelConImagenes>(respuesta);
+
+            if (hotel == null)
+            {
+                String mensaje = "Error al buscar el hotel";
+                return View(mensaje);
+            }
+            else
+            {
+                return View(hotel);
+            }
+
+        }//AdministrarComoLlegar
+
+        public async Task<ActionResult> EditarComoLlegar(string descripcion)
+        {
+            String nombreHotel = "Patito";
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var respuesta = await cliente.GetStringAsync("Hotel/ActualizarCL?nombre=" + nombreHotel + "&descripcion=" + descripcion);
+
+            Session["actualizado"] = "Descripción actualizada";
+            return RedirectToAction("About", "Home");
+
+        }//editar sobre nosotros
+
+
+
         public async Task<ActionResult> Tarifas()
         {
             String nombreHotel = "Patito";

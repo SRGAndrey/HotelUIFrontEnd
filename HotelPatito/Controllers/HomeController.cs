@@ -87,6 +87,7 @@ namespace HotelPatito.Controllers
                 return View(hotel);
             }
         }
+
         public async Task<ActionResult> Tarifas()
         {
             String nombreHotel = "Patito";
@@ -107,9 +108,8 @@ namespace HotelPatito.Controllers
             {
                 return View(hotel);
             }
-        }
-
-
+        }//Tarifas
+        
         public async Task<ActionResult> AdministrarHome()
         {
             String nombreHotel = "Patito";
@@ -135,8 +135,6 @@ namespace HotelPatito.Controllers
             }
 
         }
-
-
 
         [HttpPost]
         public async Task<ActionResult> ActualizarHome(HttpPostedFileBase file, string imagenActual, string descripcionImagenActual, string hotel, string textoDescripcion)

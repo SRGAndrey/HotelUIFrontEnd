@@ -519,7 +519,7 @@
     <Content Include="Views\Habitacion\AdministrarHabitaciones.cshtml" />
     <Content Include="Views\Reporte\Index.cshtml" />
     <Content Include="Views\EditarPaginas\About.cshtml" />
-    <Content Include="Views\EditarPaginas\ComoLlegar.cshtml" />
+    <Content Include="Views\EditarPaginas\AdministrarComoLlegar.cshtml" />
     <Content Include="Views\EditarPaginas\Contact.cshtml" />
     <Content Include="Views\EditarPaginas\Index.cshtml" />
     <Content Include="Views\EditarPaginas\Tarifas.cshtml" />
