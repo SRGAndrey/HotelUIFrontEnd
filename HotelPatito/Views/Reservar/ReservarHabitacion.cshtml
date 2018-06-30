@@ -101,8 +101,12 @@
                             </p>
                             <br />
                             <p style="color:blue;text-align:center;">
-                                Fecha de llegada: @Model.fechaInic
-                                Fecha de Salida: @Model.fechaFin
+                                @{
+                                    var fechas = ViewBag.Message;
+
+                                }
+                                Fecha de llegada: @fechas[0]
+                                Fecha de Salida: @fechas[1]
                             </p>
                         </div>
 
@@ -170,7 +174,7 @@
             <div style="text-align:center">
                 <br />
                 <input type="button" class="button" id="mostrar" name="mostrar" value="Reservar">
-                <input type="button" class="button" id="ocultar" name="mostrar" value="Atras">
+                <input type="button" class="button" value="Atras" onclick="location='http://localhost:53128/Reservar/BuscaHabitacion'" />
 
             </div>
             <form name="formulario" action="@Url.Action("HacerReservacion","Reservar")" method="post">

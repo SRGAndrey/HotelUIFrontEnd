@@ -35,6 +35,20 @@ namespace HotelPatito.Controllers
 
             var habitacionDisponible = JsonConvert.DeserializeObject<HabitacionDisponible>(respuesta);
 
+            string fechaI = Convert.ToString(habitacionDisponible.fechaInic);
+            string fechaF = Convert.ToString(habitacionDisponible.fechaFin);
+
+            var fechainicial = fechaI.Substring(0, 10);
+
+            var fechaFinal = fechaF.Substring(0, 10);
+
+            string[] fechas = new string[2];
+
+            fechas[0] = fechainicial;
+            fechas[1] = fechaFinal;
+
+            ViewBag.Message = fechas;
+
             return View(habitacionDisponible);
         }
 
