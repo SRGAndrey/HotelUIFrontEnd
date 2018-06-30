@@ -1,0 +1,50 @@
+﻿@model HotelPatito.Models.Tipadas.HotelConImagenes
+@{
+    ViewBag.Title = "AdministrarComoLlegar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link href="~/css/comoLlegar.css" rel='stylesheet' type='text/css' />
+
+<style>
+
+textarea {
+    resize: none;
+}
+
+</style>
+
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3 style="color:darksalmon">Edición: ¿Cómo llegar?</h3>
+        </header>
+    </div>
+</div>
+
+<!--agileinfo-grap-->
+
+        <!--Form-->
+        <form name="formulario" action="@Url.Action("EditarComoLlegar","EditarPaginas")" method="post">
+            <div id="fh5co-wrap">
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5" style="left:300px;">
+                                <label for="fecha_llegada" class="col-sm-5 control-label" style="width:200px">Descripción:</label>
+                                <br />
+
+                                <textarea rows="4" cols="50" class="form-control col-sm-5" id="descripcion" name="descripcion">@Model.hotel.comoLlegar_Hotel</textarea>
+
+                            </div>
+                        </div>
+                        <div style="text-align:center">
+                            <br />
+                            <input type="submit" class="btn-success" id="guardar" value="Guardar">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    
