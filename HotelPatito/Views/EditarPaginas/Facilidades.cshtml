@@ -1,0 +1,267 @@
+﻿@model HotelPatito.Models.Tipadas.FacilidadesConImagenes
+
+
+@{
+    ViewBag.Title = "Facilidadess";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3 style="color:darksalmon">Facilidades</h3>
+        </header>
+        <div class="agileits-box-body clearfix">
+            <p style="font-style:italic"><b></b></p>
+        </div>
+    </div>
+</div>
+@foreach (var habitacion in Model.facilidades)
+{
+
+    if (@habitacion.nombre_Facilidad == "Bar")
+    {
+        <form name="formulario" action="@Url.Action("EditarFacilidad","EditarPaginas")" method="post">
+
+            <div id="fh5co-wrap">
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var imagen in Model.imagenesBar)
+                            {
+                                var base64ImagenHotel = Convert.ToBase64String(imagen.imagen_Imagen);
+                                var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                                <div class="col-md-5">
+                                    <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+                                </div>
+                            }
+                            <div class="col-md-7">
+                                <h2>@habitacion.nombre_Facilidad</h2>
+                                <p>
+                                    @habitacion.descripcion_Facilidad
+                                </p>
+                                <input type="hidden" id="descripcion" name="descripcion" value="@habitacion.descripcion_Facilidad">
+                                <input type="hidden" id="nombre" name="nombre" value="@habitacion.nombre_Facilidad">
+                                <input type="hidden" id="id" name="id" value="@habitacion.id_Facilidad">
+
+                                <input type="submit" class="btn-success" id="guardar" value="Actualizar">
+
+                            </div>
+
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+    if (@habitacion.nombre_Facilidad == "Cafeterías")
+    {
+        <form name="formulario" action="@Url.Action("EditarFacilidad","EditarPaginas")" method="post">
+
+            <div id="fh5co-wrap">
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var imagen in Model.imagenesCafeteria)
+                            {
+                                var base64ImagenHotel = Convert.ToBase64String(imagen.imagen_Imagen);
+                                var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                                <div class="col-md-5">
+                                    <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+                                </div>
+                            }
+                            <div class="col-md-7">
+                                <h2>@habitacion.nombre_Facilidad</h2>
+                                <p>
+                                    @habitacion.descripcion_Facilidad
+                                </p>
+                                <input type="hidden" id="descripcion" name="descripcion" value="@habitacion.descripcion_Facilidad">
+                                <input type="hidden" id="nombre" name="nombre" value="@habitacion.nombre_Facilidad">
+                                <input type="hidden" id="id" name="id" value="@habitacion.id_Facilidad">
+                                <input type="submit" class="btn-success" id="guardar" value="Actualizar">
+
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+    if (@habitacion.nombre_Facilidad == "Zonas temáticas infantiles")
+    {
+        <form name="formulario" action="@Url.Action("EditarFacilidad","EditarPaginas")" method="post">
+
+            <div id="fh5co-wrap">
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var imagen in Model.imagenesInfantil)
+                            {
+                                var base64ImagenHotel = Convert.ToBase64String(imagen.imagen_Imagen);
+                                var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                                <div class="col-md-5">
+                                    <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+                                </div>
+                            }
+                            <div class="col-md-7">
+                                <h2>@habitacion.nombre_Facilidad</h2>
+                                <p>
+                                    @habitacion.descripcion_Facilidad
+                                </p>
+                                <input type="hidden" id="descripcion" name="descripcion" value="@habitacion.descripcion_Facilidad">
+                                <input type="hidden" id="nombre" name="nombre" value="@habitacion.nombre_Facilidad">
+                                <input type="hidden" id="id" name="id" value="@habitacion.id_Facilidad">
+                                <input type="submit" class="btn-success" id="guardar" value="Actualizar">
+
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    }
+    if (@habitacion.nombre_Facilidad == "Jacuzzi")
+    {
+        <form name="formulario" action="@Url.Action("EditarFacilidad","EditarPaginas")" method="post">
+
+            <div id="fh5co-wrap">
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var imagen in Model.imagenesJacuzzi)
+                            {
+                                var base64ImagenHotel = Convert.ToBase64String(imagen.imagen_Imagen);
+                                var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                                <div class="col-md-5">
+                                    <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+                                </div>
+                            }
+                            <div class="col-md-7">
+                                <h2>@habitacion.nombre_Facilidad</h2>
+                                <p>
+                                    @habitacion.descripcion_Facilidad
+                                </p>
+                                <input type="hidden" id="descripcion" name="descripcion" value="@habitacion.descripcion_Facilidad">
+                                <input type="hidden" id="nombre" name="nombre" value="@habitacion.nombre_Facilidad">
+                                <input type="hidden" id="id" name="id" value="@habitacion.id_Facilidad">
+                                <input type="submit" class="btn-success" id="guardar" value="Actualizar">
+
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+    if (@habitacion.nombre_Facilidad == "Canchas de Tenis")
+    {
+        <form name="formulario" action="@Url.Action("EditarFacilidad","EditarPaginas")" method="post">
+
+            <div id="fh5co-wrap">
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var imagen in Model.imagenesTenis)
+                            {
+                                var base64ImagenHotel = Convert.ToBase64String(imagen.imagen_Imagen);
+                                var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                                <div class="col-md-5">
+                                    <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+                                </div>
+                            }
+                            <div class="col-md-7">
+                                <h2>@habitacion.nombre_Facilidad</h2>
+                                <p>
+                                    @habitacion.descripcion_Facilidad
+                                </p>
+                                <input type="hidden" id="descripcion" name="descripcion" value="@habitacion.descripcion_Facilidad">
+                                <input type="hidden" id="nombre" name="nombre" value="@habitacion.nombre_Facilidad">
+                                <input type="hidden" id="id" name="id" value="@habitacion.id_Facilidad">
+
+                                <input type="submit" class="btn-success" id="guardar" value="Actualizar">
+
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+    if (@habitacion.nombre_Facilidad == "Restaurante")
+    {
+        <form name="formulario" action="@Url.Action("EditarFacilidad","EditarPaginas")" method="post">
+
+            <div id="fh5co-wrap">
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var imagen in Model.imagenesRestaurante)
+                            {
+                                var base64ImagenHotel = Convert.ToBase64String(imagen.imagen_Imagen);
+                                var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                                <div class="col-md-5">
+                                    <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+                                </div>
+                            }
+                            <div class="col-md-7">
+                                <h2>@habitacion.nombre_Facilidad</h2>
+                                <p>
+                                    @habitacion.descripcion_Facilidad
+                                </p>
+                                <input type="hidden" id="descripcion" name="descripcion" value="@habitacion.descripcion_Facilidad">
+                                <input type="hidden" id="nombre" name="nombre" value="@habitacion.nombre_Facilidad">
+                                <input type="hidden" id="id" name="id" value="@habitacion.id_Facilidad">
+                                <input type="submit" class="btn-success" id="guardar" value="Actualizar">
+
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+    if (@habitacion.nombre_Facilidad == "Piscinas")
+    {
+        <form name="formulario" action="@Url.Action("EditarFacilidad","EditarPaginas")" method="post">
+
+            <div id="fh5co-wrap">
+                <div class="fh5co-section">
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var imagen in Model.imagenesPiscina)
+                            {
+                                var base64ImagenHotel = Convert.ToBase64String(imagen.imagen_Imagen);
+                                var imgSrcImagenHotel = String.Format("data:image/gif;base64,{0}", base64ImagenHotel);
+                                <div class="col-md-5">
+                                    <img src="@imgSrcImagenHotel" width="400" height="400" class="img-responsive">
+                                </div>
+                            }
+                            <div class="col-md-7">
+                                <h2>@habitacion.nombre_Facilidad</h2>
+                                <p>
+                                    @habitacion.descripcion_Facilidad
+                                </p>
+                                <input type="hidden" id="descripcion" name="descripcion" value="@habitacion.descripcion_Facilidad">
+                                <input type="hidden" id="nombre" name="nombre" value="@habitacion.nombre_Facilidad">
+                                <input type="hidden" id="id" name="id" value="@habitacion.id_Facilidad">
+                                <input type="hidden" id="id" name="id" value="@habitacion.id_Facilidad">
+
+
+                                <input type="submit" class="btn-success" id="guardar" value="Actualizar">
+
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+}

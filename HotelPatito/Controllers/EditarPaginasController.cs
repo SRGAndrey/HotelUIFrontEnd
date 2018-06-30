@@ -56,6 +56,20 @@ namespace HotelPatito.Controllers
                 return View(hotel);
             }
         }//about
+        public async Task<ActionResult> Facilidades()
+        {
+
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var respuesta = await cliente.GetStringAsync("Facilidad/ObtenerFacilidades");
+            var facilidad = JsonConvert.DeserializeObject<FacilidadesConImagenes>(respuesta);
+            return View(facilidad);
+
+
+        }
 
         public async Task<ActionResult> EditarSobreNosotros(string descripcion)
         {
@@ -80,6 +94,41 @@ namespace HotelPatito.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public async Task<ActionResult> Facilidad(string id, string descripcion, string nombre)
+        {
+            String nombreHotel = "Patito";
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var respuesta = await cliente.GetStringAsync("Facilidad/actualizarFacilidad?id=" + id + "&descripcion=" + descripcion + "&nombre=" + nombre);
+
+            return RedirectToAction("Facilidades", "EditarPaginas");
+        }
+        public async Task<ActionResult> EditarFacilidad(string id)
+        {
+            String nombreHotel = "Patito";
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri(Base_URL);
+            cliente.DefaultRequestHeaders.Accept.Clear();
+            cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var respuesta = await cliente.GetStringAsync("Facilidad/obtenerTipoFacilidad?id=" + id);
+            var hotel = JsonConvert.DeserializeObject<Facilidad>(respuesta);
+
+            if (hotel == null)
+            {
+                String mensaje = "Error al buscar el hotel";
+                return View(mensaje);
+            }
+            else
+            {
+                return View(hotel);
+            }
+        }
         public async Task<ActionResult> ComoLlegar()
         {
             String nombreHotel = "Patito";

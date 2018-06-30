@@ -15,39 +15,19 @@ namespace HotelPatito.Controllers
     {
         private string Base_URL = "http://localhost:58406/";
         // GET: Facilidades
-        public async Task<ActionResult> Index(int page = 1, int pageSize = 4)
+        public async Task<ActionResult> Index()
         {
 
-            //HttpClient cliente = new HttpClient();
-            //cliente.BaseAddress = new Uri(Base_URL);
-            //cliente.DefaultRequestHeaders.Accept.Clear();
-            //cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-            //var respuesta = await cliente.GetStringAsync("Facilidad/ObtenerFacilidades");
-            //var facilidad = JsonConvert.DeserializeObject<FacilidadesConImagenes>(respuesta);
-            //return View(facilidad);
-
-            String nombreHotel = "Patito";
             HttpClient cliente = new HttpClient();
             cliente.BaseAddress = new Uri(Base_URL);
             cliente.DefaultRequestHeaders.Accept.Clear();
             cliente.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var respuesta = await cliente.GetStringAsync("Facilidad/ObtenerFacilidades");
-            var hotel = JsonConvert.DeserializeObject<List<FacilidadesConImagenes>>(respuesta);
+            var facilidad = JsonConvert.DeserializeObject<FacilidadesConImagenes>(respuesta);
+            return View(facilidad);
 
-            PagedList<FacilidadesConImagenes> model = new PagedList<FacilidadesConImagenes>(hotel, page, pageSize);
-
-
-            if (hotel == null)
-            {
-                String mensaje = "Error al buscar el hotel";
-                return View(mensaje);
-            }
-            else
-            {
-                return View(model);
-            }
+           
         }
         public async Task<ActionResult> PaginaUnoFacilidades()
         {

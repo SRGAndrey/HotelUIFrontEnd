@@ -1,0 +1,71 @@
+﻿@model HotelPatito.Models.Tipadas.Facilidad
+@{
+    ViewBag.Title = "EditarFacilidad";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3 style="color:darksalmon">Modificar Facilidad</h3>
+        </header>
+        <div class="agileits-box-body clearfix">
+            <p style="font-style:italic"><b></b></p>
+        </div>
+    </div>
+</div>
+<div id="fh5co-wrap">
+    <div class="fh5co-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="container border border-success">
+                    <form class="form-horizontal" action="../EditarPaginas/Facilidad" method="post">
+                        <div class="form-group ">
+                            <h1 style="text-align: center;" class="text-success">Modificar @Model.nombre_Facilidad</h1>
+                            <br>
+                            <div class="col-md-2">
+                                <input class="form-control" type="hidden" placeholder="tarifa" value="@Model.nombre_Facilidad" id="nombre" name="nombre">
+                            </div>
+
+                        </div>
+                        <br /><br />
+
+                        <div class="form-group">
+                            <label for="descripcion" class="control-label col-md-2 ">Descripción: </label>
+                            <div class="col-md-6">
+                                <textarea class="form-control col-md-12" rows="5" name="descripcion" id="descripcion">@Model.descripcion_Facilidad</textarea>
+                            </div>
+                        </div>
+                        <br /><br />
+
+                        <input type="hidden" id="id" name="id" value="@Model.id_Facilidad">
+
+                        <div class="form-group ">
+                            <div class="col-md-6 col-md-offset-4">
+                                <input type="submit" class="btn btn-success col-md-4" value="Guardar" id="BtnGuardar">
+
+
+                            </div>
+                        </div>
+
+                    </form>
+                    <form action="../Habitacion/AdministrarHabitaciones" method="post">
+                        <div class="form-group ">
+                            <div class="col-md-6 col-md-offset-4">
+                                <input type="submit" class="btn btn-danger col-md-4" value="Cancelar" id="BtnCancel">
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+
+</div>
