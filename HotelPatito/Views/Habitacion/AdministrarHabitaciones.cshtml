@@ -44,11 +44,11 @@
                             <td>@habitacion.numero_Habitacion</td>
                             @if (@habitacion.estado_Habitacion == "Disponible")
                             {
-                                <td>@Html.CheckBox("a", true)</td>
+                                <td>@Html.CheckBox("a", true, new { @disabled = "disabled" })</td>
                             }
                             else
                             {
-                                <td>@Html.CheckBox("a", false)</td>
+                                <td>@Html.CheckBox("a", false, new { @disabled = "disabled" })</td>
                             }
                             <td>Activa?</td>
                         </tr>
